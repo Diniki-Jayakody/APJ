@@ -7,33 +7,6 @@ export const aboutPoints = [
   'Travel insurance, accommodation guidance and air ticketing support after approval.',
 ];
 
-export const whyApjTimeline = [
-  {
-    id: 'clarity',
-    year: '01',
-    title: 'Clarity First',
-    description: 'We start with your profile — education, budget, and goals — before recommending any destination.',
-  },
-  {
-    id: 'compare',
-    year: '02',
-    title: 'Honest Comparison',
-    description: 'Side-by-side country and course analysis so families make informed decisions together.',
-  },
-  {
-    id: 'prepare',
-    year: '03',
-    title: 'Embassy-Ready Files',
-    description: 'SOP, financial documents, and appointment preparation aligned with current embassy standards.',
-  },
-  {
-    id: 'depart',
-    year: '04',
-    title: 'Beyond Approval',
-    description: 'Insurance, ticketing, accommodation guidance, and pre-departure support until you fly.',
-  },
-];
-
 export const visaProcessSteps = [
   { id: 'consultation', step: 1, title: 'Consultation', description: 'Understand student profile, budget, study goal and preferred country.' },
   { id: 'university', step: 2, title: 'University', description: 'Compare countries, colleges, tuition fees, intakes and study pathway.' },
@@ -142,41 +115,6 @@ export const partnerUniversities = [
   'University of Hertfordshire',
   'Paris School of Business',
   'Heriot-Watt Dubai',
-];
-
-export const mediaAppearances = [
-  {
-    id: 'rupavahini',
-    type: 'tv',
-    title: 'Jathika Rupavahini',
-    subtitle: 'National Television Feature',
-    description: 'APJ featured discussing student visa pathways for Sri Lankan families.',
-    label: 'TV Feature',
-  },
-  {
-    id: 'youtube',
-    type: 'youtube',
-    title: 'YouTube Interview',
-    subtitle: 'Education Series',
-    description: 'In-depth conversation on choosing the right destination and preparing documents.',
-    label: 'Interview',
-  },
-  {
-    id: 'edu-program',
-    type: 'program',
-    title: 'Educational Program',
-    subtitle: 'Study Abroad Forum',
-    description: 'Live session guiding parents through admissions, finances, and visa timelines.',
-    label: 'Live Session',
-  },
-  {
-    id: 'media-gallery',
-    type: 'gallery',
-    title: 'Media Gallery',
-    subtitle: 'Press & Appearances',
-    description: 'Coverage across local media highlighting APJ student success stories.',
-    label: 'Coverage',
-  },
 ];
 
 export const recognitionStats = [

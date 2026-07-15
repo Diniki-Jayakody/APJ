@@ -17,13 +17,41 @@ export const ContactSection = () => (
           {contact.branches.map((b) => (
             <ContactCard key={b.id} icon="location">
               <b>{b.name}</b>
-              {b.address}<br />
-              <a href={b.phoneLink} className="hover:text-white">{b.phone}</a>
+              {b.address}
+              <br />
+              <a
+                href={b.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-100 underline-offset-2 hover:text-white hover:underline"
+              >
+                View on Google Maps
+              </a>
             </ContactCard>
           ))}
+          <ContactCard icon="phone">
+            <b>Call APJ</b>
+            <span className="mt-1 flex flex-col gap-1">
+              {contact.phones.map((phone) => (
+                <a key={phone.link} href={phone.link} className="hover:text-white">
+                  {phone.display}
+                </a>
+              ))}
+            </span>
+          </ContactCard>
           <ContactCard icon="email">
             <a href={`mailto:${contact.email}`} className="hover:text-white">{contact.email}</a>
-            <br />{contact.website}
+            <br />
+            <a
+              href={contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              WhatsApp: {contact.whatsappDisplay}
+            </a>
+            <br />
+            {contact.website}
           </ContactCard>
         </div>
       </div>

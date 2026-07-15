@@ -6,7 +6,7 @@ import { brandLogo } from '../../data/assets';
 import Container from './Container';
 
 export const Footer = () => (
-  <footer className="bg-navy-950 pt-12 pb-6 text-sky-100/80">
+  <footer className="bg-navy-950 pt-12 pb-8 text-sky-100/80">
     <Container>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
@@ -34,8 +34,20 @@ export const Footer = () => (
           <h3 className="mb-3 font-semibold text-white">Contact</h3>
           <div className="flex flex-col gap-2 text-sm">
             {contact.branches.map((b) => (
-              <span key={b.id}>{b.name}: {b.phone}</span>
+              <div key={b.id}>
+                <span className="text-white/90">{b.name}</span>
+                <br />
+                <a href={b.phoneLink} className="hover:text-white">{b.phone}</a>
+              </div>
             ))}
+            <a
+              href={contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              WhatsApp: {contact.whatsappDisplay}
+            </a>
             <a href={`mailto:${contact.email}`} className="hover:text-white">{contact.email}</a>
           </div>
         </div>
@@ -48,9 +60,8 @@ export const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs md:flex-row md:justify-between">
+      <div className="mt-8 border-t border-white/10 pt-6 text-xs">
         <span>{strings.footer.copyright}</span>
-        <span>{strings.footer.disclaimer}</span>
       </div>
     </Container>
   </footer>

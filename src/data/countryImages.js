@@ -1,5 +1,5 @@
 /**
- * Destination hero images — Unsplash (optimized WebP via auto=format)
+ * Destination hero images — Unsplash (optimized via auto=format)
  * Centralized so components never hardcode image URLs.
  */
 const unsplash = (id, w = 800) =>
@@ -19,12 +19,12 @@ export const countryImages = {
     alt: 'Kuala Lumpur Petronas Towers',
   },
   singapore: {
-    src: unsplash('1525626928542-5545f399a9af'),
-    alt: 'Marina Bay Sands, Singapore',
+    src: unsplash('1565967511841-47a60b7625df'),
+    alt: 'Marina Bay Sands skyline, Singapore',
   },
   spain: {
-    src: unsplash('1583422409516-28912a58ef52'),
-    alt: 'Sagrada Familia, Barcelona',
+    src: unsplash('1558642452-9d2a1240d7ff'),
+    alt: 'Barcelona cityscape, Spain',
   },
   france: {
     src: unsplash('1502602898657-3e91760cbb34'),
@@ -35,8 +35,8 @@ export const countryImages = {
     alt: 'Riga old town, Latvia',
   },
   cyprus: {
-    src: unsplash('1601581875250-2af513f57b9d'),
-    alt: 'Mediterranean coast, Cyprus',
+    src: unsplash('1507525428034-b723cf961d3e'),
+    alt: 'Mediterranean coastline, Cyprus',
   },
   russia: {
     src: unsplash('1513326738677-b964753b0a76'),
@@ -51,11 +51,11 @@ export const countryImages = {
     alt: 'Sydney Opera House and harbour',
   },
   newzealand: {
-    src: unsplash('1469521664192-4dde1001a27f'),
-    alt: 'Milford Sound, New Zealand',
+    src: unsplash('1469854523086-cc02fe5d8800'),
+    alt: 'Mountain lake landscape, New Zealand',
   },
   greece: {
-    src: unsplash('1613395875278-7bbc394494a8'),
+    src: unsplash('1533105079780-fdcd5d41bc70'),
     alt: 'Santorini white buildings and blue sea',
   },
   lithuania: {
@@ -63,11 +63,11 @@ export const countryImages = {
     alt: 'Vilnius old town, Lithuania',
   },
   hungary: {
-    src: unsplash('1541343677864-2161936a7e93'),
-    alt: 'Parliament building, Budapest',
+    src: unsplash('1541343655690-b22599079a5c'),
+    alt: 'Parliament building along the Danube, Budapest',
   },
   canada: {
-    src: unsplash('1519832971-ade6f4aa930a'),
+    src: unsplash('1503614471-8b4bbad91c0e'),
     alt: 'Moraine Lake, Canadian Rockies',
   },
 };

@@ -2,7 +2,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getCountryBySlug } from '../data/countries';
 import { getCountryImage } from '../data/countryImages';
-import { useFormContext } from '../context/FormContext';
 import { theme } from '../constants/theme';
 import SEO from '../components/layout/SEO';
 import Container from '../components/layout/Container';
@@ -13,7 +12,6 @@ import { fadeUp } from '../animations/variants';
 const CountryDetailPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const { selectDestination } = useFormContext();
   const country = getCountryBySlug(slug);
   const image = country ? getCountryImage(country.slug) : null;
 
@@ -25,10 +23,6 @@ const CountryDetailPage = () => {
       </Container>
     );
   }
-
-  const handleApply = () => {
-    selectDestination(country.applyName);
-  };
 
   return (
     <>
@@ -59,14 +53,14 @@ const CountryDetailPage = () => {
                 className="absolute inset-0"
                 style={{ background: theme.gradients.cardOverlay }}
               />
-              <div className="absolute bottom-0 left-0 p-8">
+              <div className="absolute bottom-0 left-0 p-6 sm:p-8">
                 <span className="text-5xl" role="img" aria-label={`${country.name} flag`}>{country.flag}</span>
-                <h1 className="mt-2 text-4xl font-bold text-white">{country.name}</h1>
+                <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">{country.name}</h1>
                 <p className="mt-2 max-w-2xl font-normal leading-relaxed text-sky-100/90">{country.description}</p>
               </div>
             </div>
 
-            <div className="p-8 md:p-10">
+            <div className="p-6 sm:p-8 md:p-10">
               <div className="mb-6 flex flex-wrap gap-2">
                 {country.badges.map((badge) => (
                   <span key={badge} className="rounded-xl border border-line bg-sky-50 px-4 py-2 text-sm font-medium text-navy-900">
@@ -79,10 +73,8 @@ const CountryDetailPage = () => {
                 {Object.entries({
                   Capital: country.facts.capital,
                   Currency: country.facts.currency,
-                  Languages: country.facts.languages,
                   Climate: country.facts.climate,
                   'Best For': country.facts.bestFor,
-                  Tuition: country.facts.tuitionFeeRange,
                   'Living Cost': country.facts.livingCost,
                   'APJ Note': country.facts.apjNote,
                 }).map(([label, value]) => (
@@ -108,11 +100,11 @@ const CountryDetailPage = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button variant="primary" onClick={handleApply}>Apply for {country.name}</Button>
-                <Button variant="outline" onClick={() => navigate('/#countries')}>Back to Countries</Button>
+              <div className="mt-6">
+                <Button variant="outline" onClick={() => navigate('/#countries')}>
+                  Back to Countries
+                </Button>
               </div>
-              <p className="mt-4 border-l-4 border-secondary pl-3 text-xs text-muted">{country.sourceNote}</p>
             </div>
           </motion.article>
         </Container>

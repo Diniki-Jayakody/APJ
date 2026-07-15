@@ -1,0 +1,20 @@
+
+
+{
+    Branch: Kuliyapitiya,
+    Contacts: 0743327985 / 0701962029 / 0712828375 / 0702676450,
+    Address: 114/4 Main Street 02nd Floor, Union Arcade, Kuliyapitiya
+    MapLink: https://maps.app.goo.gl/8tpSb3gFa6A8TM8J8
+}
+
+{
+    Branch: Matara,
+    Contacts: 0772828375 / 0772727304 / 0714003037,
+    Address: 413/6 Akuressa Road, Hiththatiya, Matara
+    MapLink: https://maps.app.goo.gl/6sPrZyLYTJ2RJ7rEA
+}
+
+{
+    Main_WhatsApp_Contact: 0743327985,
+    Website_Link: https://www.apjconsultancy.lk
+}

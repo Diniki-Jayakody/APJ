@@ -36,12 +36,6 @@ export const strings = {
         'Explore our most popular study destinations. Each pathway is backed by verified guidance, transparent costs, and end-to-end APJ support.',
       exploreMore: 'Explore More Destinations',
     },
-    whyApj: {
-      kicker: 'Why APJ',
-      title: 'A consultancy built on clarity, not confusion.',
-      description:
-        'We replace overwhelming choices with structured guidance — so every student moves forward with confidence.',
-    },
     process: {
       kicker: 'Your Journey',
       title: 'From consultation to departure.',
@@ -111,7 +105,6 @@ export const strings = {
   },
   footer: {
     copyright: '© 2026 APJ Consultancy. All rights reserved.',
-    disclaimer: 'Final country and visa information must be officially verified before travel.',
   },
   seo: {
     title: 'APJ Consultancy | Premium Study Abroad & Visa Guidance',

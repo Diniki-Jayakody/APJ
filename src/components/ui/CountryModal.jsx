@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
 import CountryCard from './CountryCard';
-import Button from './Button';
 
 export const CountryModal = ({ isOpen, onClose, countries, onViewDetails }) => (
   <AnimatePresence>

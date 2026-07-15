@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { IoCallOutline, IoMailOutline, IoLocationOutline } from 'react-icons/io5';
 import { cn } from '../../utils/cn';
 

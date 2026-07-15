@@ -1,0 +1,17 @@
+{
+    RefImage: youtube_1,
+    TitleDate: "13 November 2024",
+    link: "https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji"
+}
+
+{
+    RefImage: youtube_2,
+    TitleDate: "13 December 2024",
+    link: "https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji"
+}
+
+{
+    RefImage: youtube_3,
+    TitleDate: "13 January 2025",
+    link: "https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji"
+}

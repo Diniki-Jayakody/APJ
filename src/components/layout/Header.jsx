@@ -44,7 +44,13 @@ export const Header = () => {
                 <span className="font-medium">{b.name}<br /><span className="font-normal">{b.phone}</span></span>
               </a>
             ))}
-            <Button href={contact.whatsappUrl} variant="secondary" size="sm">
+            <Button
+              href={contact.whatsappUrl}
+              variant="secondary"
+              size="sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book Consultation
             </Button>
           </div>

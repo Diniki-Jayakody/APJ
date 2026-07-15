@@ -18,7 +18,17 @@ import studentNipuni from '../assets/testimonials/student_Nipuni.jpeg';
 import studentSachith from '../assets/testimonials/student_Sachith.jpeg';
 import studentUmaya from '../assets/testimonials/student_Umaya.jpeg';
 
+import youtube1 from '../assets/mediaPresence/youtube_1.jpeg';
+import youtube2 from '../assets/mediaPresence/youtube_2.jpeg';
+import youtube3 from '../assets/mediaPresence/youtube_3.jpeg';
+
 export const brandLogo = logo;
+
+const mediaThumbnails = {
+  youtube_1: youtube1,
+  youtube_2: youtube2,
+  youtube_3: youtube3,
+};
 
 export const studentPhotos = {
   darshana: studentDarshana,
@@ -80,6 +90,34 @@ export const certificatesGallery = [
   },
 ];
 
+/**
+ * Parsed from src/assets/mediaPresence/mediaPresence.txt
+ * TitleDate is used as the card title; RefImage maps to local thumbnails.
+ */
+export const mediaPresenceGallery = [
+  {
+    id: 'youtube_1',
+    src: mediaThumbnails.youtube_1,
+    title: '13 November 2024',
+    url: 'https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji',
+    alt: 'APJ Consultancy media appearance — 13 November 2024',
+  },
+  {
+    id: 'youtube_2',
+    src: mediaThumbnails.youtube_2,
+    title: '13 December 2024',
+    url: 'https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji',
+    alt: 'APJ Consultancy media appearance — 13 December 2024',
+  },
+  {
+    id: 'youtube_3',
+    src: mediaThumbnails.youtube_3,
+    title: '13 January 2025',
+    url: 'https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji',
+    alt: 'APJ Consultancy media appearance — 13 January 2025',
+  },
+];
+
 export const officeGallery = [
   {
     id: 'office_1',
@@ -117,6 +155,7 @@ export default {
   brandLogo,
   awardsGallery,
   certificatesGallery,
+  mediaPresenceGallery,
   officeGallery,
   studentPhotos,
 };
