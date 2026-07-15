@@ -8,6 +8,8 @@ import Heading from '../components/ui/Heading';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+const metaLine = (item) => [item.country, item.university].filter(Boolean).join(' · ');
+
 export const SuccessStoriesSection = () => (
   <Section id="success-stories" background="default">
     <Heading
@@ -31,16 +33,21 @@ export const SuccessStoriesSection = () => (
             className="h-full rounded-2xl border border-line bg-white p-6 shadow-brand-sm hover:shadow-brand-md"
           >
             <div className="flex items-center gap-4">
-              <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${item.gradient} text-lg font-semibold text-white`}>
-                {item.initials}
-              </div>
-              <div>
+              <img
+                src={item.photo}
+                alt={`${item.name}, APJ Consultancy student`}
+                loading="lazy"
+                decoding="async"
+                className="h-14 w-14 shrink-0 rounded-2xl border border-line object-cover object-top"
+              />
+              <div className="min-w-0">
                 <h3 className="font-semibold text-navy-900">{item.name}</h3>
-                <p className="text-xs font-medium text-muted">{item.country} · {item.university}</p>
+                {metaLine(item) ? (
+                  <p className="text-xs font-medium text-muted">{metaLine(item)}</p>
+                ) : null}
               </div>
             </div>
             <p className="mt-4 text-sm font-normal italic leading-relaxed text-muted">&ldquo;{item.quote}&rdquo;</p>
-            <p className="mt-4 text-xs font-medium text-secondary">Visa approved · {item.visaDate}</p>
           </motion.article>
         </SwiperSlide>
       ))}

@@ -7,6 +7,7 @@ export const LazyImage = ({
   className,
   wrapperClassName,
   aspectRatio = '4 / 3',
+  objectFit = 'cover',
   ...props
 }) => {
   const [loaded, setLoaded] = useState(false);
@@ -30,7 +31,8 @@ export const LazyImage = ({
         decoding="async"
         onLoad={() => setLoaded(true)}
         className={cn(
-          'h-full w-full object-cover transition-all duration-700',
+          'h-full w-full transition-all duration-700',
+          objectFit === 'contain' ? 'object-contain' : 'object-cover',
           loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105',
           className,
         )}

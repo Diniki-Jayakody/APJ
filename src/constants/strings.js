@@ -85,6 +85,10 @@ export const strings = {
         'APJ Consultancy is featured in national media and recognized for student success — trust built in public, not just promised in private.',
       mediaTitle: 'Media Presence',
       awardsTitle: 'Awards & Recognition',
+      certificatesTitle: 'Certificates & Partnerships',
+    },
+    office: {
+      caption: 'Kuliyapitiya & Matara branches serving Sri Lanka',
     },
   },
   form: {

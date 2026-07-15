@@ -1,3 +1,5 @@
+import { studentPhotos } from './assets';
+
 export const aboutPoints = [
   'Personalized counselling based on education, age, budget and career goal.',
   'Country and course comparison before students make decisions.',
@@ -77,44 +79,52 @@ export const faqs = [
 
 export const testimonials = [
   {
-    id: '1',
-    name: 'Sanduni Perera',
-    country: 'Australia',
-    university: 'Deakin University',
-    visaDate: 'March 2025',
-    quote: 'APJ made the entire visa process transparent. From course selection to my departure, every step was handled professionally.',
-    initials: 'SP',
-    gradient: 'from-amber-500 to-orange-400',
+    id: 'malindu',
+    name: 'Malindu',
+    country: 'Singapore',
+    quote:
+      'APJ Consultancy guided me through every step of my Singapore student visa process. The team was friendly, professional, and always ready to answer my questions. I am very thankful for their excellent support.',
+    photo: studentPhotos.malindu,
   },
   {
-    id: '2',
-    name: 'Kasun Fernando',
-    country: 'United Kingdom',
-    university: 'University of Hertfordshire',
-    visaDate: 'January 2025',
-    quote: 'I was overwhelmed by options until APJ compared countries honestly. My UK visa was approved on the first attempt.',
-    initials: 'KF',
-    gradient: 'from-blue-600 to-indigo-500',
+    id: 'umaya',
+    name: 'Umaya',
+    country: 'Malta',
+    quote:
+      'I am very grateful to APJ Consultancy for making my dream of studying in Malta possible. They explained the process clearly and helped me prepare all the required documents correctly.',
+    photo: studentPhotos.umaya,
   },
   {
-    id: '3',
-    name: 'Nethmi Silva',
-    country: 'Canada',
-    university: 'Seneca College',
-    visaDate: 'November 2024',
-    quote: 'The financial document guidance was exceptional. APJ prepared my file exactly how the embassy expected it.',
-    initials: 'NS',
-    gradient: 'from-red-500 to-rose-400',
+    id: 'nipuni',
+    name: 'Nipuni',
+    country: 'Malta',
+    quote:
+      'APJ Consultancy gave me outstanding guidance throughout my Malta student visa journey. Their team was always available, supportive, and professional. I confidently recommend APJ Consultancy to future students.',
+    photo: studentPhotos.nipuni,
   },
   {
-    id: '4',
-    name: 'Dilshan Jayawardena',
-    country: 'Malaysia',
-    university: 'Taylor\'s University',
-    visaDate: 'August 2024',
-    quote: 'Affordable pathway with premium support. APJ helped my family understand every cost before we committed.',
-    initials: 'DJ',
-    gradient: 'from-emerald-500 to-teal-400',
+    id: 'sachith',
+    name: 'Sachith',
+    country: 'Singapore',
+    quote:
+      'I had a smooth and stress-free experience with APJ Consultancy. They helped me with my admission, documents, and visa process. I highly recommend their service to any student planning to study in Singapore.',
+    photo: studentPhotos.sachith,
+  },
+  {
+    id: 'mithun',
+    name: 'Mithun',
+    country: 'Russia',
+    quote:
+      'APJ Consultancy provided great support for my university admission and visa process to Russia. The staff handled my documents carefully and kept me updated at every stage. I truly appreciate their dedication.',
+    photo: studentPhotos.mithun,
+  },
+  {
+    id: 'darshana',
+    name: 'Darshana',
+    country: 'Malta',
+    quote:
+      'My experience with APJ Consultancy was excellent. They supported me from the university application until my Malta visa approval. The team was professional, helpful, and trustworthy.',
+    photo: studentPhotos.darshana,
   },
 ];
 
@@ -141,7 +151,7 @@ export const mediaAppearances = [
     title: 'Jathika Rupavahini',
     subtitle: 'National Television Feature',
     description: 'APJ featured discussing student visa pathways for Sri Lankan families.',
-    placeholder: 'TV Appearance',
+    label: 'TV Feature',
   },
   {
     id: 'youtube',
@@ -149,7 +159,7 @@ export const mediaAppearances = [
     title: 'YouTube Interview',
     subtitle: 'Education Series',
     description: 'In-depth conversation on choosing the right destination and preparing documents.',
-    placeholder: 'Watch Interview',
+    label: 'Interview',
   },
   {
     id: 'edu-program',
@@ -157,7 +167,7 @@ export const mediaAppearances = [
     title: 'Educational Program',
     subtitle: 'Study Abroad Forum',
     description: 'Live session guiding parents through admissions, finances, and visa timelines.',
-    placeholder: 'Program Spot',
+    label: 'Live Session',
   },
   {
     id: 'media-gallery',
@@ -165,31 +175,7 @@ export const mediaAppearances = [
     title: 'Media Gallery',
     subtitle: 'Press & Appearances',
     description: 'Coverage across local media highlighting APJ student success stories.',
-    placeholder: 'View Coverage',
-  },
-];
-
-export const awards = [
-  {
-    id: 'consultancy',
-    title: 'Consultancy Award',
-    issuer: 'Education Industry Recognition',
-    year: '2024',
-    description: 'Recognized for excellence in student counselling and transparent guidance.',
-  },
-  {
-    id: 'success',
-    title: 'Student Success Award',
-    issuer: 'Regional Education Summit',
-    year: '2023',
-    description: 'Honored for high visa outcome rates and end-to-end student support.',
-  },
-  {
-    id: 'excellence',
-    title: 'Educational Excellence',
-    issuer: 'Community & Industry Panel',
-    year: '2025',
-    description: 'Celebrated for building trust with families across Sri Lanka.',
+    label: 'Coverage',
   },
 ];
 

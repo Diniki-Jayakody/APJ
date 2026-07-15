@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { strings } from '../../constants/strings';
 import { contact } from '../../constants/contact';
 import { navigation } from '../../constants/navigation';
+import { brandLogo } from '../../data/assets';
 import Container from './Container';
 
 export const Footer = () => (
@@ -9,7 +10,14 @@ export const Footer = () => (
     <Container>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="mb-3 text-lg font-semibold text-white">{strings.brand.name}</h3>
+          <Link to="/" className="mb-4 inline-flex items-center gap-3">
+            <img
+              src={brandLogo}
+              alt={strings.brand.name}
+              className="h-12 w-12 rounded-xl bg-white object-contain p-0.5"
+            />
+            <h3 className="text-lg font-semibold text-white">{strings.brand.name}</h3>
+          </Link>
           <p className="text-sm font-normal leading-relaxed">
             Professional student visa and travel consultancy support for Sri Lankan students planning to study abroad.
           </p>

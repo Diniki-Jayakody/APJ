@@ -5,7 +5,7 @@ import { IoMenu, IoClose } from 'react-icons/io5';
 import { strings } from '../../constants/strings';
 import { contact } from '../../constants/contact';
 import { navigation } from '../../constants/navigation';
-import logo from '../../assets/logo.svg';
+import { brandLogo } from '../../data/assets';
 import Container from './Container';
 import Button from '../ui/Button';
 
@@ -27,7 +27,11 @@ export const Header = () => {
       <div className="hidden border-b border-line bg-white lg:block">
         <Container className="flex items-center justify-between gap-4 py-3">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="" className="h-14 w-14 rounded-2xl shadow-brand-sm" aria-hidden />
+            <img
+              src={brandLogo}
+              alt={strings.brand.name}
+              className="h-14 w-14 rounded-2xl object-contain shadow-brand-sm"
+            />
             <div>
               <p className="text-lg font-semibold text-navy-900">{strings.brand.name}</p>
               <p className="text-xs font-normal text-muted">{strings.brand.tagline}</p>
@@ -54,7 +58,11 @@ export const Header = () => {
       >
         <Container className="flex items-center justify-between py-0">
           <Link to="/" className="flex items-center gap-2 py-3 lg:hidden">
-            <img src={logo} alt="" className="h-9 w-9 rounded-lg" aria-hidden />
+            <img
+              src={brandLogo}
+              alt={strings.brand.name}
+              className="h-9 w-9 rounded-lg bg-white object-contain p-0.5"
+            />
             <span className="text-lg font-semibold text-white">APJ</span>
           </Link>
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">

@@ -33,7 +33,9 @@ export const SEO = ({ title, description, path = '/' }) => {
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={url} />
+      <meta property="og:image" content={`https://${contact.website}/apj_logo.png`} />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={`https://${contact.website}/apj_logo.png`} />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
