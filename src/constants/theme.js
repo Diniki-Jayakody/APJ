@@ -1,0 +1,127 @@
+export const theme = {
+  colors: {
+    primary: {
+      DEFAULT: '#1D2B63',
+      dark: '#151F4D',
+      light: '#2A3D7A',
+    },
+    secondary: {
+      DEFAULT: '#26A9D4',
+      light: '#5CC4E4',
+      dark: '#1E8AB0',
+    },
+    navy: {
+      950: '#151F4D',
+      900: '#1D2B63',
+      800: '#1D2B63',
+      700: '#26A9D4',
+    },
+    sky: {
+      500: '#26A9D4',
+      400: '#5CC4E4',
+      100: '#EAF8FD',
+      50: '#F8FCFF',
+    },
+    accent: {
+      DEFAULT: '#26A9D4',
+      light: '#EAF8FD',
+    },
+    white: '#FFFFFF',
+    ink: '#1F2937',
+    muted: '#6B7280',
+    soft: '#F8FCFF',
+    background: '#F8FCFF',
+    line: '#D9ECF7',
+    success: '#20B15A',
+  },
+  spacing: {
+    section: { sm: '3.5rem', md: '4.75rem', lg: '6rem' },
+    container: { sm: '1.25rem', md: '1.5rem', lg: '2rem' },
+    gap: { xs: '0.5rem', sm: '0.75rem', md: '1rem', lg: '1.5rem', xl: '2rem', '2xl': '2.75rem' },
+  },
+  typography: {
+    fontFamily: '"Poppins", ui-sans-serif, system-ui, sans-serif',
+    sizes: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '3.75rem',
+      hero: 'clamp(2.25rem, 5vw, 3.75rem)',
+    },
+    weights: {
+      body: 400,
+      nav: 500,
+      heading: 600,
+      hero: 700,
+    },
+    lineHeights: {
+      tight: 1.15,
+      snug: 1.3,
+      normal: 1.6,
+      relaxed: 1.7,
+    },
+    letterSpacing: {
+      tight: '-0.02em',
+      normal: '0',
+      wide: '0.04em',
+    },
+  },
+  shadows: {
+    sm: '0 10px 28px rgba(29, 43, 99, 0.08)',
+    md: '0 22px 60px rgba(29, 43, 99, 0.12)',
+    lg: '0 32px 80px rgba(29, 43, 99, 0.16)',
+    glow: '0 0 48px rgba(38, 169, 212, 0.28)',
+    card: '0 18px 45px rgba(29, 43, 99, 0.1)',
+    button: '0 14px 28px rgba(29, 43, 99, 0.1)',
+    globe: '0 40px 90px rgba(29, 43, 99, 0.35), 0 16px 40px rgba(38, 169, 212, 0.2)',
+  },
+  gradients: {
+    hero: 'radial-gradient(circle at 14% 18%, rgba(38,169,212,0.12), transparent 24%), radial-gradient(circle at 86% 14%, rgba(29,43,99,0.08), transparent 22%), linear-gradient(120deg, #FFFFFF 0%, #F8FCFF 48%, #EAF8FD 100%)',
+    navy: 'linear-gradient(135deg, #151F4D, #1D2B63, #26A9D4)',
+    sky: 'linear-gradient(135deg, #EAF8FD, #FFFFFF)',
+    primary: 'linear-gradient(135deg, #1D2B63, #2A3D7A)',
+    secondary: 'linear-gradient(135deg, #26A9D4, #5CC4E4)',
+    mesh: 'radial-gradient(circle at 15% 18%, rgba(38,169,212,0.12), transparent 23%), radial-gradient(circle at 88% 16%, rgba(29,43,99,0.06), transparent 21%)',
+    glass: 'linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72))',
+    cardOverlay: 'linear-gradient(to top, rgba(21,31,77,0.88) 0%, rgba(21,31,77,0.45) 45%, rgba(21,31,77,0.1) 100%)',
+  },
+  borderRadius: {
+    sm: '0.75rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '1.75rem',
+    '2xl': '2rem',
+    '3xl': '2.5rem',
+    full: '9999px',
+  },
+  animation: {
+    duration: {
+      fast: 0.2,
+      normal: 0.35,
+      slow: 0.6,
+      slower: 0.9,
+    },
+    easing: {
+      smooth: [0.22, 1, 0.36, 1],
+      bounce: [0.34, 1.56, 0.64, 1],
+    },
+  },
+  breakpoints: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+  },
+  assets: {
+    globeSize: { sm: 256, md: 320 },
+    countryCardAspect: '4 / 3',
+  },
+};
+
+export default theme;

@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APJ Consultancy | Full Country Details Website Sample</title>
+  <style>
+    :root{
+      --blue:#063B8E;
+      --blue2:#086DD7;
+      --deep:#031E49;
+      --sky:#00AEEF;
+      --skysoft:#EAF8FF;
+      --gold:#F9B233;
+      --goldsoft:#FFF4D8;
+      --white:#FFFFFF;
+      --ink:#15213B;
+      --muted:#667085;
+      --soft:#F6FAFF;
+      --line:#D8E8FF;
+      --green:#20B15A;
+      --shadow:0 22px 60px rgba(6,59,142,.14);
+      --shadow2:0 10px 28px rgba(6,59,142,.09);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.58;
+    }
+    a{text-decoration:none;color:inherit}
+    .notice{
+      padding:11px 5%;
+      background:linear-gradient(90deg,var(--goldsoft),var(--skysoft));
+      color:#5B3B00;
+      font-size:13px;
+      font-weight:850;
+      text-align:center;
+      border-bottom:1px solid #F8D88C;
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      padding:16px 5%;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      min-width:285px;
+    }
+    .logo{
+      width:70px;
+      height:70px;
+      border-radius:22px;
+      background:linear-gradient(135deg,var(--deep),var(--blue));
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:27px;
+      font-weight:1000;
+      position:relative;
+      box-shadow:0 16px 34px rgba(6,59,142,.24);
+    }
+    .logo:before{
+      content:"";
+      width:48px;height:16px;
+      background:var(--gold);
+      clip-path:polygon(0 56%,50% 0,100% 56%,50% 100%);
+      position:absolute;
+      top:9px;left:10px;
+      transform:rotate(-10deg);
+    }
+    .brand h1{margin:0;color:var(--blue);font-size:25px;line-height:1.05}
+    .brand p{margin:4px 0 0;color:var(--muted);font-size:13px;font-weight:800}
+    .top-actions{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .contact-mini{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:#101828;
+      font-weight:850;
+      font-size:13px;
+      line-height:1.25;
+    }
+    .contact-mini span{
+      width:40px;height:40px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:var(--skysoft);
+      color:var(--blue);
+      border:1px solid #BDEEFF;
+      font-size:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:13px 22px;
+      border-radius:12px;
+      border:0;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:1000;
+      white-space:nowrap;
+      box-shadow:0 14px 28px rgba(0,0,0,.09);
+      transition:.22s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-blue{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff}
+    .btn-gold{background:linear-gradient(135deg,var(--gold),#FFC94D);color:#0D254F}
+    .btn-green{background:var(--green);color:#fff}
+    .btn-white{background:#fff;color:var(--blue);border:1px solid var(--line);box-shadow:none}
+    nav{
+      position:sticky;top:0;z-index:60;
+      background:rgba(3,30,73,.96);
+      backdrop-filter:blur(14px);
+      color:#fff;
+      padding:0 5%;
+      box-shadow:0 16px 36px rgba(3,30,73,.24);
+    }
+    .nav-inner{
+      max-width:1280px;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .menu{display:flex;gap:2px;overflow-x:auto}
+    .menu a{
+      padding:18px 13px 15px;
+      border-bottom:4px solid transparent;
+      text-transform:uppercase;
+      font-weight:1000;
+      font-size:12px;
+      white-space:nowrap;
+      letter-spacing:.2px;
+    }
+    .menu a:hover{border-bottom-color:var(--gold);color:var(--gold)}
+    .nav-cta{
+      background:var(--sky);
+      color:#fff;
+      border-radius:12px;
+      padding:10px 18px;
+      font-weight:1000;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .hero{
+      padding:0 5%;
+      background:
+        radial-gradient(circle at 15% 18%,rgba(0,174,239,.14),transparent 23%),
+        radial-gradient(circle at 88% 16%,rgba(249,178,51,.24),transparent 21%),
+        linear-gradient(120deg,#fff 0%,#F5FBFF 44%,#DFF4FF 100%);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:after{
+      content:"";
+      width:820px;height:820px;border-radius:50%;
+      position:absolute;right:-330px;bottom:-430px;
+      background:linear-gradient(135deg,rgba(6,59,142,.2),rgba(0,174,239,.16));
+    }
+    .hero-grid{
+      max-width:1280px;margin:auto;
+      min-height:650px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:42px;
+      align-items:center;
+      position:relative;z-index:1;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      color:var(--blue);
+      font-weight:1000;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-size:12px;
+      margin-bottom:18px;
+    }
+    .eyebrow:before{content:"";width:38px;height:4px;background:var(--gold);border-radius:10px}
+    .hero h2{
+      margin:0 0 18px;
+      color:var(--deep);
+      font-size:62px;
+      line-height:1.02;
+      letter-spacing:-2.4px;
+    }
+    .hero h2 span{color:#0787EA}
+    .hero p{
+      margin:0 0 30px;
+      color:#34405E;
+      font-size:18px;
+      max-width:720px;
+    }
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap}
+    .trust-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+    .trust{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 15px;
+      display:flex;gap:10px;align-items:center;
+      box-shadow:var(--shadow2);
+      font-weight:950;
+      color:var(--deep);
+    }
+    .trust span{font-size:22px}
+    .hero-visual{
+      min-height:540px;
+      border-radius:40px;
+      background:
+        linear-gradient(150deg,rgba(3,30,73,.95),rgba(6,59,142,.88),rgba(0,174,239,.82)),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='650'><rect width='900' height='650' fill='%23EAF8FF'/><circle cx='700' cy='170' r='135' fill='%23fff' opacity='.7'/><path d='M-10 520 C160 400 260 540 410 380 C540 240 720 340 930 110' fill='none' stroke='%23F9B233' stroke-width='36' opacity='.85'/><path d='M-20 590 C170 460 300 610 475 410 C600 260 720 390 930 180' fill='none' stroke='%2300AEEF' stroke-width='34' opacity='.55'/></svg>");
+      background-size:cover;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      padding:32px;
+    }
+    .plane{
+      position:absolute;top:50px;right:44px;
+      font-size:72px;transform:rotate(-12deg);
+      filter:drop-shadow(0 16px 18px rgba(0,0,0,.2));
+    }
+    .student-group{
+      position:absolute;
+      right:74px;
+      bottom:145px;
+      width:365px;height:320px;
+      display:flex;align-items:flex-end;justify-content:center;
+    }
+    .person{
+      width:130px;height:245px;
+      border-radius:70px 70px 25px 25px;
+      border:5px solid rgba(255,255,255,.92);
+      background:linear-gradient(#F2BE8C 0 28%,#172033 28% 35%,#fff 35% 43%,#1C7DD9 43% 100%);
+      box-shadow:0 22px 38px rgba(0,0,0,.22);
+      position:relative;
+      margin-left:-16px;
+    }
+    .person:nth-child(2){height:290px;background:linear-gradient(#F1B985 0 27%,#172033 27% 34%,#fff 34% 42%,#F9B233 42% 100%);z-index:2}
+    .person:nth-child(3){height:260px;background:linear-gradient(#EFB37C 0 28%,#172033 28% 35%,#fff 35% 42%,#9FE1FF 42% 100%)}
+    .person:before{content:"";width:70px;height:40px;border-radius:50%;position:absolute;left:25px;top:-12px;background:#172033}
+    .person:after{content:"📘";position:absolute;bottom:24px;left:42px;font-size:32px}
+    .visual-panel{
+      width:100%;
+      position:relative;z-index:3;
+      background:rgba(255,255,255,.95);
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:24px;
+      padding:20px;
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      box-shadow:0 18px 45px rgba(0,0,0,.15);
+    }
+    .visual-stat b{display:block;color:var(--blue);font-size:25px;line-height:1.05}
+    .visual-stat span{font-size:12px;color:var(--muted);font-weight:850}
+    section{padding:76px 5%}
+    .container{max-width:1280px;margin:0 auto}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title.left{text-align:left}
+    .kicker{color:var(--blue);font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:1000;margin-bottom:8px}
+    .section-title h2{color:var(--deep);font-size:42px;line-height:1.12;letter-spacing:-1.2px;margin:0 0 12px}
+    .section-title p{color:var(--muted);max-width:800px;margin:0 auto;font-size:16px}
+    .section-title.left p{margin-left:0}
+    .underline{width:58px;height:5px;background:var(--gold);border-radius:10px;margin:18px auto 0}
+    .section-title.left .underline{margin-left:0}
+    .stats{
+      padding:0 5%;
+      margin-top:-52px;
+      position:relative;
+      z-index:10;
+    }
+    .stats-grid{
+      max-width:1280px;margin:auto;
+      background:linear-gradient(90deg,var(--deep),var(--blue2));
+      color:#fff;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      display:grid;grid-template-columns:repeat(4,1fr);
+      overflow:hidden;
+    }
+    .stat{
+      padding:30px 24px;
+      display:flex;gap:16px;align-items:center;
+      border-right:1px solid rgba(255,255,255,.18);
+    }
+    .stat:last-child{border-right:0}
+    .stat i{
+      font-style:normal;
+      width:58px;height:58px;border-radius:18px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      display:grid;place-items:center;font-size:30px;
+    }
+    .stat b{display:block;font-size:23px;line-height:1.1}
+    .stat span{font-size:13px;color:#DCEBFF;font-weight:800}
+    .about-grid{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:44px;
+      align-items:center;
+    }
+    .office-card{
+      border:1px solid var(--line);
+      border-radius:32px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      background:linear-gradient(180deg,#fff,#F2F9FF);
+    }
+    .office-photo{
+      height:360px;
+      border-radius:26px;
+      background:linear-gradient(90deg,#f8fbff 0 17%,#063B8E 17% 82%,#f8fbff 82% 100%);
+      display:grid;place-items:center;
+      position:relative;overflow:hidden;
+    }
+    .office-photo:before{
+      content:"APJ CONSULTANCY";
+      color:#fff;
+      font-size:37px;
+      font-weight:1000;
+      letter-spacing:.5px;
+      padding:28px 42px;
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.11);
+    }
+    .office-photo:after{
+      content:"Professional student visa counselling office concept";
+      position:absolute;left:24px;right:24px;bottom:24px;
+      padding:15px;border-radius:16px;background:#fff;
+      color:var(--blue);font-weight:950;text-align:center;
+      box-shadow:var(--shadow2);
+    }
+    .tick-list{list-style:none;margin:25px 0;padding:0;display:grid;gap:13px}
+    .tick-list li{display:flex;gap:12px;align-items:flex-start;color:#283650;font-weight:800}
+    .tick-list li:before{
+      content:"✓";
+      width:27px;height:27px;flex:0 0 27px;border-radius:50%;
+      background:var(--skysoft);color:var(--blue);
+      display:grid;place-items:center;font-weight:1000;border:1px solid #BDEEFF;
+    }
+    .countries{
+      background:linear-gradient(180deg,var(--soft),#fff);
+    }
+    .country-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:18px;
+    }
+    .country-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px 18px;
+      box-shadow:var(--shadow2);
+      transition:.22s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .country-card:before{
+      content:"";
+      position:absolute;left:0;right:0;top:0;height:5px;
+      background:linear-gradient(90deg,var(--blue),var(--sky),var(--gold));
+    }
+    .country-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+      border-color:#91DFFF;
+    }
+    .flag{
+      width:58px;height:58px;border-radius:18px;
+      background:var(--skysoft);
+      display:grid;place-items:center;font-size:33px;
+      margin-bottom:12px;
+    }
+    .country-card h3{margin:0 0 6px;color:var(--deep);font-size:18px}
+    .country-card p{margin:0 0 15px;color:var(--muted);font-size:13px;min-height:40px}
+    .open-link{color:var(--blue);font-weight:1000;font-size:12px;text-transform:uppercase;letter-spacing:.45px}
+    .country-details-wrap{
+      display:grid;
+      gap:34px;
+      margin-top:48px;
+    }
+    .country-detail{
+      scroll-margin-top:92px;
+      border:1px solid var(--line);
+      border-radius:32px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      min-height:470px;
+    }
+    .country-left{
+      padding:34px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 22% 18%,rgba(249,178,51,.25),transparent 20%),
+        radial-gradient(circle at 82% 72%,rgba(0,174,239,.22),transparent 22%),
+        linear-gradient(160deg,var(--deep),var(--blue));
+      position:relative;
+      overflow:hidden;
+    }
+    .country-left:after{
+      content:"";
+      width:350px;height:350px;border-radius:50%;
+      border:42px solid rgba(255,255,255,.06);
+      position:absolute;right:-125px;bottom:-125px;
+    }
+    .country-left .bigflag{font-size:76px;margin-bottom:16px;position:relative;z-index:1}
+    .country-left h3{font-size:38px;line-height:1.05;margin:0 0 12px;position:relative;z-index:1}
+    .country-left p{margin:0;color:#DCEBFF;font-weight:750;position:relative;z-index:1}
+    .country-badges{display:grid;gap:12px;margin-top:28px;position:relative;z-index:1}
+    .badge{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:16px;
+      padding:14px;
+      display:flex;gap:12px;align-items:center;
+      font-weight:900;
+    }
+    .badge span{font-size:22px}
+    .country-right{padding:34px}
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:13px;
+      margin-bottom:24px;
+    }
+    .fact{
+      min-height:104px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(180deg,#fff,#F7FBFF);
+      padding:15px;
+    }
+    .fact small{
+      display:block;color:var(--muted);
+      font-size:11px;font-weight:1000;letter-spacing:.5px;
+      text-transform:uppercase;margin-bottom:7px;
+    }
+    .fact b{display:block;color:var(--deep);font-size:17px;line-height:1.25}
+    .info-cols{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .info-box{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+      background:#fff;
+    }
+    .info-box h4{margin:0 0 11px;color:var(--blue);font-size:17px}
+    .info-box ul{margin:0;padding-left:19px;color:#34405E;font-size:14px}
+    .info-box li{margin-bottom:7px}
+    .country-actions{
+      display:flex;flex-wrap:wrap;gap:12px;
+      margin-top:24px;align-items:center;
+    }
+    .source-note{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:750;
+      border-left:4px solid var(--gold);
+      padding-left:12px;
+    }
+    .services{background:#fff}
+    .service-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+    }
+    .service-card{
+      background:#fff;border:1px solid var(--line);border-radius:24px;
+      padding:26px;box-shadow:var(--shadow2);transition:.22s ease;
+    }
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .service-icon{
+      width:60px;height:60px;border-radius:20px;
+      background:linear-gradient(135deg,var(--skysoft),#fff);
+      border:1px solid #BDEEFF;
+      display:grid;place-items:center;font-size:29px;margin-bottom:16px;
+    }
+    .service-card h3{margin:0 0 8px;color:var(--deep);font-size:18px}
+    .service-card p{margin:0;color:var(--muted);font-size:14px}
+    .process{background:var(--soft)}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:17px;counter-reset:step}
+    .step{
+      background:linear-gradient(180deg,#fff,#F7FBFF);
+      border:1px solid var(--line);border-radius:24px;
+      padding:24px;box-shadow:var(--shadow2);
+    }
+    .step:before{
+      counter-increment:step;content:counter(step);
+      width:46px;height:46px;border-radius:16px;
+      background:var(--gold);color:#0D254F;
+      display:grid;place-items:center;font-weight:1000;
+      margin-bottom:15px;font-size:18px;
+    }
+    .step h3{margin:0 0 8px;color:var(--deep);font-size:17px}
+    .step p{margin:0;color:var(--muted);font-size:13px}
+    .lead{
+      background:linear-gradient(135deg,var(--deep),var(--blue2));
+      color:#fff;border-radius:32px;overflow:hidden;
+      display:grid;grid-template-columns:1fr 1fr;
+      box-shadow:var(--shadow);
+    }
+    .lead-copy{padding:42px}
+    .lead-copy h2{margin:0 0 12px;font-size:36px;line-height:1.1}
+    .lead-copy p{margin:0 0 24px;color:#DCEBFF}
+    .lead-form{
+      padding:34px;background:rgba(255,255,255,.12);
+      display:grid;gap:12px;
+    }
+    .lead-form input,.lead-form select,.lead-form textarea{
+      width:100%;border:0;border-radius:14px;padding:14px 15px;
+      font-size:14px;color:#111827;background:#fff;
+      transition:.2s ease;
+    }
+    .apply-note{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff;
+      border-radius:14px;
+      padding:12px 14px;
+      font-size:13px;
+      font-weight:900;
+    }
+    .contact{background:#fff}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:stretch}
+    .contact-card{
+      background:linear-gradient(160deg,var(--deep),var(--blue));
+      color:#fff;border-radius:30px;padding:34px;box-shadow:var(--shadow);
+    }
+    .contact-card h2{margin:0 0 10px;font-size:34px}
+    .contact-card p{margin:0 0 20px;color:#DCEBFF}
+    .branch{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:18px;padding:17px;margin-bottom:13px;font-weight:750;
+    }
+    .branch b{display:block;color:#fff;margin-bottom:4px}
+    .faq-list{display:grid;gap:13px}
+    .faq{
+      background:#fff;border:1px solid var(--line);border-radius:20px;
+      padding:20px;box-shadow:var(--shadow2);
+    }
+    .faq h3{margin:0 0 8px;color:var(--deep);font-size:18px}
+    .faq p{margin:0;color:var(--muted);font-size:14px}
+    footer{
+      background:#031735;color:#C5D6F2;
+      padding:48px 5% 27px;
+    }
+    .footer-grid{
+      max-width:1280px;margin:auto;
+      display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:28px;
+    }
+    footer h3{margin:0 0 14px;color:#fff}
+    footer p,footer a{color:#B5C7E6;font-size:14px}
+    .footer-links{display:grid;gap:9px}
+    .copyright{
+      max-width:1280px;margin:28px auto 0;padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.13);
+      display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+      color:#8FA5C9;font-size:13px;
+    }
+    .floating{
+      position:fixed;right:22px;bottom:22px;
+      background:var(--green);color:#fff;border-radius:999px;
+      padding:14px 20px;font-weight:1000;
+      box-shadow:0 18px 42px rgba(0,0,0,.24);
+      z-index:80;
+    }
+    @media(max-width:1100px){
+      .hero-grid,.about-grid,.country-detail,.lead,.contact-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:460px}
+      .stats-grid,.service-grid{grid-template-columns:repeat(2,1fr)}
+      .country-grid{grid-template-columns:repeat(3,1fr)}
+      .facts{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:720px){
+      .top-actions{display:none}
+      .hero{padding-top:46px}
+      .hero-grid{min-height:auto}
+      .hero h2{font-size:42px}
+      .hero-visual{display:none}
+      section{padding:58px 5%}
+      .stats{margin-top:0;padding-top:20px}
+      .stats-grid,.service-grid,.country-grid,.facts,.info-cols,.steps,.footer-grid{grid-template-columns:1fr}
+      .stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+      .section-title h2{font-size:32px}
+      .nav-cta{display:none}
+      .menu a{font-size:11px;padding:17px 11px 14px}
+      .office-photo{height:280px}
+      .office-photo:before{font-size:25px}
+      .country-detail{border-radius:24px}
+      .country-left,.country-right{padding:24px}
+      .floating{right:14px;bottom:14px;padding:12px 16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">Professional sample website for APJ Consultancy. Every country card below opens that country’s own details section.</div>
+
+  <header class="topbar" id="home">
+    <a class="brand" href="#home">
+      <div class="logo">APJ</div>
+      <div>
+        <h1>APJ CONSULTANCY</h1>
+        <p>Your Dream, Our Guidance</p>
+      </div>
+    </a>
+    <div class="top-actions">
+      <div class="contact-mini"><span>☎</span><div>Kuliyapitiya Branch<br>076 794 3327</div></div>
+      <div class="contact-mini"><span>☎</span><div>Matara Branch<br>077 282 8375</div></div>
+      <div class="contact-mini"><span>🟢</span><div>WhatsApp<br>076 794 3327</div></div>
+      <a class="btn btn-gold" href="#apply">Book Consultation</a>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#countries">Countries</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#apply">Apply</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#apply">Apply Now ✈</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Study Abroad & Visa Consultancy</div>
+          <h2>Build Your Future With <span>Trusted Visa Guidance</span></h2>
+          <p>APJ Consultancy supports Sri Lankan students with country selection, course guidance, admission support, visa documentation, travel insurance, air ticketing and pre-departure preparation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-blue" href="#countries">Explore Countries</a>
+            <a class="btn btn-gold" href="#apply">Book Free Consultation</a>
+            <a class="btn btn-green" href="#contact">WhatsApp APJ</a>
+          </div>
+          <div class="trust-row">
+            <div class="trust"><span>🏆</span>600+ Success Cases</div>
+            <div class="trust"><span>📍</span>2 Branches</div>
+            <div class="trust"><span>🌍</span>10+ Destinations</div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="plane">✈️</div>
+          <div class="student-group">
+            <div class="person"></div>
+            <div class="person"></div>
+            <div class="person"></div>
+          </div>
+          <div class="visual-panel">
+            <div class="visual-stat"><b>600+</b><span>Visa Success Cases</span></div>
+            <div class="visual-stat"><b>2022</b><span>Trusted Since</span></div>
+            <div class="visual-stat"><b>10+</b><span>Countries</span></div>
+            <div class="visual-stat"><b>360°</b><span>Student Support</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stats-grid">
+        <div class="stat"><i>🎓</i><div><b>Course Guidance</b><span>Find the right study pathway</span></div></div>
+        <div class="stat"><i>🛂</i><div><b>Visa Support</b><span>Professional documentation guidance</span></div></div>
+        <div class="stat"><i>🏦</i><div><b>Financial Guidance</b><span>Bank and sponsor document guidance</span></div></div>
+        <div class="stat"><i>✈️</i><div><b>Travel Support</b><span>Insurance, ticket and pre-departure</span></div></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="office-card">
+          <div class="office-photo"></div>
+        </div>
+        <div>
+          <div class="section-title left">
+            <div class="kicker">About APJ Consultancy</div>
+            <h2>Professional support for international education.</h2>
+            <p>APJ Consultancy is designed to guide students and parents with clear, honest and professional support for study abroad planning and visa preparation.</p>
+            <div class="underline"></div>
+          </div>
+          <ul class="tick-list">
+            <li>Personalized counselling based on education, age, budget and career goal.</li>
+            <li>Country and course comparison before students make decisions.</li>
+            <li>Admission support, document guidance and embassy-style preparation.</li>
+            <li>Travel insurance, accommodation guidance and air ticketing support after approval.</li>
+          </ul>
+          <a class="btn btn-blue" href="#countries">View Country Guide</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="countries" id="countries">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Country Information Guide</div>
+          <h2>Click Any Country to See Its Details</h2>
+          <p>This section is built exactly like you requested: click Malta for Malta details, click Dubai for Dubai details, click Malaysia for Malaysia details, and so on.</p>
+          <div class="underline"></div>
+        </div>
+
+        <div class="country-grid">
+          <a class="country-card" href="#country-malta"><div class="flag">🇲🇹</div><h3>Malta</h3><p>European island destination with English study environment.</p><span class="open-link">Open Malta Details →</span></a>
+          <a class="country-card" href="#country-dubai"><div class="flag">🇦🇪</div><h3>Dubai / UAE</h3><p>International business hub with modern city lifestyle.</p><span class="open-link">Open Dubai Details →</span></a>
+          <a class="country-card" href="#country-malaysia"><div class="flag">🇲🇾</div><h3>Malaysia</h3><p>Affordable Asian education hub with English-medium options.</p><span class="open-link">Open Malaysia Details →</span></a>
+          <a class="country-card" href="#country-singapore"><div class="flag">🇸🇬</div><h3>Singapore</h3><p>Modern city-state for diploma and postgraduate pathways.</p><span class="open-link">Open Singapore Details →</span></a>
+          <a class="country-card" href="#country-spain"><div class="flag">🇪🇸</div><h3>Spain</h3><p>European lifestyle with language and business pathways.</p><span class="open-link">Open Spain Details →</span></a>
+          <a class="country-card" href="#country-france"><div class="flag">🇫🇷</div><h3>France</h3><p>Premium European destination for management and hospitality.</p><span class="open-link">Open France Details →</span></a>
+          <a class="country-card" href="#country-latvia"><div class="flag">🇱🇻</div><h3>Latvia</h3><p>Baltic European study pathway with affordable options.</p><span class="open-link">Open Latvia Details →</span></a>
+          <a class="country-card" href="#country-cyprus"><div class="flag">🇨🇾</div><h3>Cyprus</h3><p>Mediterranean island destination for hospitality and business.</p><span class="open-link">Open Cyprus Details →</span></a>
+          <a class="country-card" href="#country-russia"><div class="flag">🇷🇺</div><h3>Russia</h3><p>Language foundation and university pathway options.</p><span class="open-link">Open Russia Details →</span></a>
+          <a class="country-card" href="#country-uk"><div class="flag">🇬🇧</div><h3>United Kingdom</h3><p>Premium English-speaking destination with global recognition.</p><span class="open-link">Open UK Details →</span></a>
+          <a class="country-card" href="#country-australia"><div class="flag">🇦🇺</div><h3>Australia</h3><p>Globally popular English-speaking destination with wide study options.</p><span class="open-link">Open Australia Details →</span></a>
+          <a class="country-card" href="#country-newzealand"><div class="flag">🇳🇿</div><h3>New Zealand</h3><p>Safe English-speaking country with quality education and lifestyle.</p><span class="open-link">Open New Zealand Details →</span></a>
+          <a class="country-card" href="#country-greece"><div class="flag">🇬🇷</div><h3>Greece</h3><p>Historic European destination with growing study opportunities.</p><span class="open-link">Open Greece Details →</span></a>
+          <a class="country-card" href="#country-lithuania"><div class="flag">🇱🇹</div><h3>Lithuania</h3><p>Baltic European study option with practical education pathways.</p><span class="open-link">Open Lithuania Details →</span></a>
+          <a class="country-card" href="#country-hungary"><div class="flag">🇭🇺</div><h3>Hungary</h3><p>Central European destination known for value and student life.</p><span class="open-link">Open Hungary Details →</span></a>
+          <a class="country-card" href="#country-canada"><div class="flag">🇨🇦</div><h3>Canada</h3><p>Highly popular study destination with strong global recognition.</p><span class="open-link">Open Canada Details →</span></a>
+        </div>
+
+        <div class="country-details-wrap">
+
+          <article class="country-detail" id="country-malta">
+            <div class="country-left">
+              <div class="bigflag">🇲🇹</div>
+              <h3>Malta</h3>
+              <p>A popular European island destination for Sri Lankan students, known for English-speaking study options, Mediterranean lifestyle and EU environment.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Southern Europe</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Valletta, Msida, Sliema, St. Julian’s</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Valletta</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>Maltese & English</b></div>
+                <div class="fact"><small>Climate</small><b>Mediterranean</b></div>
+                <div class="fact"><small>Best For</small><b>Diploma, Bachelor & Masters</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 4,000 – 12,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 700 – 1,200 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Good English study environment</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Malta</h4><ul><li>English is widely used in education and daily life.</li><li>Small island environment with European exposure.</li><li>Popular for business, hospitality, IT and healthcare pathways.</li><li>Good option for students who prefer a compact study destination.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Management</li><li>Hospitality & Tourism</li><li>Computer Science / IT</li><li>Healthcare & Nursing</li><li>Food Science</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Malta')">Apply for Malta</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final visa rules, tuition fees, work rules and processing times should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-dubai">
+            <div class="country-left">
+              <div class="bigflag">🇦🇪</div>
+              <h3>Dubai / UAE</h3>
+              <p>Dubai is part of the United Arab Emirates and is attractive for students who want a global city environment, business exposure and hospitality opportunities.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Middle East</div>
+                <div class="badge"><span>💱</span> Currency: UAE Dirham (AED)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Dubai, Abu Dhabi, Sharjah</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Abu Dhabi</b></div>
+                <div class="fact"><small>Currency</small><b>UAE Dirham (AED)</b></div>
+                <div class="fact"><small>Languages</small><b>Arabic; English widely used</b></div>
+                <div class="fact"><small>Climate</small><b>Desert climate</b></div>
+                <div class="fact"><small>Best For</small><b>Business, Hospitality & IT</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. AED 18,000 – 55,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. AED 2,500 – 5,000 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Dubai is the main student-attraction city</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Dubai / UAE</h4><ul><li>International city lifestyle with many expatriates.</li><li>Strong business, tourism and hospitality environment.</li><li>English is widely used in commercial and education settings.</li><li>Good option for students who prefer a regional global hub.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Management</li><li>Hospitality & Tourism</li><li>Information Technology</li><li>Marketing</li><li>Logistics</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Dubai / UAE')">Apply for Dubai / UAE</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Dubai is a city in the UAE; the country capital is Abu Dhabi. Final visa information must be verified.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-malaysia">
+            <div class="country-left">
+              <div class="bigflag">🇲🇾</div>
+              <h3>Malaysia</h3>
+              <p>Malaysia is a popular Asian education destination for Sri Lankan students due to affordability, multicultural lifestyle and English-medium study options.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Southeast Asia</div>
+                <div class="badge"><span>💱</span> Currency: Malaysian Ringgit (MYR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Kuala Lumpur, Penang, Johor Bahru</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Kuala Lumpur</b></div>
+                <div class="fact"><small>Currency</small><b>Malaysian Ringgit (MYR)</b></div>
+                <div class="fact"><small>Languages</small><b>Malay / Bahasa Malaysia; English widely used</b></div>
+                <div class="fact"><small>Climate</small><b>Tropical</b></div>
+                <div class="fact"><small>Best For</small><b>Affordable Bachelor & Diploma</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. MYR 15,000 – 45,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. MYR 1,500 – 3,000 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Good value destination</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Malaysia</h4><ul><li>Affordable tuition and living-cost positioning.</li><li>Multicultural country with Asian lifestyle.</li><li>Many English-medium education options.</li><li>Shorter travel distance compared with Europe.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Management</li><li>Hospitality & Tourism</li><li>Computer Science</li><li>Engineering</li><li>Healthcare</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Malaysia')">Apply for Malaysia</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final EMGS, visa, intake and fee details should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-singapore">
+            <div class="country-left">
+              <div class="bigflag">🇸🇬</div>
+              <h3>Singapore</h3>
+              <p>Singapore is a premium Asian city-state known for modern infrastructure, English use and business-focused education pathways.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Southeast Asia</div>
+                <div class="badge"><span>💱</span> Currency: Singapore Dollar (SGD)</div>
+                <div class="badge"><span>🏙️</span> Student city: Singapore</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Singapore</b></div>
+                <div class="fact"><small>Currency</small><b>Singapore Dollar (SGD)</b></div>
+                <div class="fact"><small>Languages</small><b>English, Malay, Mandarin & Tamil</b></div>
+                <div class="fact"><small>Climate</small><b>Tropical</b></div>
+                <div class="fact"><small>Best For</small><b>Business, IT & Postgraduate</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. SGD 10,000 – 30,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. SGD 900 – 2,000 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Premium Asian destination</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Singapore</h4><ul><li>Highly modern city-state with strong business environment.</li><li>English is commonly used in education and business.</li><li>Good for diploma and postgraduate pathways.</li><li>Strong appeal for students wanting a city-based lifestyle.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Administration</li><li>Information Technology</li><li>Hospitality</li><li>Supply Chain</li><li>Postgraduate Diploma</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Singapore')">Apply for Singapore</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final student pass rules and institution requirements must be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-spain">
+            <div class="country-left">
+              <div class="bigflag">🇪🇸</div>
+              <h3>Spain</h3>
+              <p>Spain is attractive for students who want a European study environment, strong city lifestyle and language or business pathways.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Southwestern Europe</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Madrid, Barcelona, Valencia, Seville</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Madrid</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>Spanish / Castilian</b></div>
+                <div class="fact"><small>Climate</small><b>Mediterranean, Atlantic & continental</b></div>
+                <div class="fact"><small>Best For</small><b>Language, Business & MBA</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 4,000 – 15,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 700 – 1,300 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Good for Spanish language pathway</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Spain</h4><ul><li>Large European country with many student cities.</li><li>Good option for language plus higher education pathways.</li><li>Strong culture, tourism, business and hospitality environment.</li><li>Students can build Spanish language exposure.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Spanish Language</li><li>Business Management</li><li>Marketing</li><li>Hospitality & Tourism</li><li>MBA</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Spain')">Apply for Spain</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final BLS/Embassy requirements, visa fee and processing details should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-france">
+            <div class="country-left">
+              <div class="bigflag">🇫🇷</div>
+              <h3>France</h3>
+              <p>France is a major European education destination with strong business, hospitality, fashion, tourism and management pathways.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Western Europe</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Paris, Lyon, Marseille, Nice</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Paris</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>French</b></div>
+                <div class="fact"><small>Climate</small><b>Temperate; Mediterranean in the south</b></div>
+                <div class="fact"><small>Best For</small><b>Management, Hospitality & Tourism</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 3,000 – 20,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 800 – 1,500 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>French language helps daily life</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose France</h4><ul><li>Recognized European education destination.</li><li>Strong tourism, hospitality, luxury and business sectors.</li><li>Many international students choose France for European exposure.</li><li>Good country page for premium APJ branding.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>International Business</li><li>Hospitality Management</li><li>Tourism & Events</li><li>MBA</li><li>Fashion / Luxury Management</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('France')">Apply for France</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final Campus France / visa requirements should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-latvia">
+            <div class="country-left">
+              <div class="bigflag">🇱🇻</div>
+              <h3>Latvia</h3>
+              <p>Latvia is a Baltic EU destination that can be positioned for students looking for a European study pathway with city-based study options.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Northern Europe / Baltic</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Riga, Daugavpils, Liepāja</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Riga</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>Latvian</b></div>
+                <div class="fact"><small>Climate</small><b>Cool temperate</b></div>
+                <div class="fact"><small>Best For</small><b>Business, IT & Engineering</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 3,000 – 8,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 500 – 900 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Affordable European pathway option</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Latvia</h4><ul><li>EU/Baltic destination with European lifestyle.</li><li>Riga is a popular student city.</li><li>Can be positioned as a practical European pathway.</li><li>Good option for students comparing cost and quality.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Administration</li><li>Information Technology</li><li>Engineering</li><li>Hospitality</li><li>Logistics</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Latvia')">Apply for Latvia</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final visa submission process and document requirements should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-cyprus">
+            <div class="country-left">
+              <div class="bigflag">🇨🇾</div>
+              <h3>Cyprus</h3>
+              <p>Cyprus is a Mediterranean study destination often considered for business, hospitality, tourism and management-related programs.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Eastern Mediterranean</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Nicosia, Limassol, Larnaca, Paphos</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Nicosia</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>Greek & Turkish; English widely used</b></div>
+                <div class="fact"><small>Climate</small><b>Mediterranean</b></div>
+                <div class="fact"><small>Best For</small><b>Business & Hospitality</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 5,000 – 12,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 600 – 1,000 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Island destination with tourism focus</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Cyprus</h4><ul><li>Mediterranean island lifestyle.</li><li>Strong relevance for tourism and hospitality students.</li><li>English is widely used in many international education settings.</li><li>Good option for students seeking a warm climate destination.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Management</li><li>Hospitality & Tourism</li><li>Computer Science</li><li>Health Sciences</li><li>Marketing</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Cyprus')">Apply for Cyprus</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final college and visa information should be checked before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-russia">
+            <div class="country-left">
+              <div class="bigflag">🇷🇺</div>
+              <h3>Russia</h3>
+              <p>Russia can be positioned for students looking for language preparation, university pathways and affordable study options in selected fields.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Eastern Europe & Northern Asia</div>
+                <div class="badge"><span>💱</span> Currency: Russian Ruble (RUB)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Moscow, Saint Petersburg, Kazan</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Moscow</b></div>
+                <div class="fact"><small>Currency</small><b>Russian Ruble (RUB)</b></div>
+                <div class="fact"><small>Languages</small><b>Russian</b></div>
+                <div class="fact"><small>Climate</small><b>Varies widely; cold winters in many regions</b></div>
+                <div class="fact"><small>Best For</small><b>Language, Medicine, IT & Engineering</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. RUB 155,000 – 600,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. RUB 20,000 – 50,000 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Language preparation may be important</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Russia</h4><ul><li>Large country with many universities and study cities.</li><li>Popular for language foundation before degree study.</li><li>Can offer affordable study pathways in selected universities.</li><li>Suitable for students ready to adapt to a new language environment.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Russian Language Foundation</li><li>Medicine / Healthcare</li><li>Engineering</li><li>Information Technology</li><li>Management</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Russia')">Apply for Russia</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final invitation, embassy and visa rules should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-uk">
+            <div class="country-left">
+              <div class="bigflag">🇬🇧</div>
+              <h3>United Kingdom</h3>
+              <p>The UK is a premium English-speaking study destination with strong university recognition and a wide range of academic pathways.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Western Europe</div>
+                <div class="badge"><span>💱</span> Currency: Pound Sterling (GBP)</div>
+                <div class="badge"><span>🏙️</span> Student cities: London, Manchester, Birmingham, Glasgow</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>London</b></div>
+                <div class="fact"><small>Currency</small><b>Pound Sterling (GBP)</b></div>
+                <div class="fact"><small>Languages</small><b>English</b></div>
+                <div class="fact"><small>Climate</small><b>Temperate maritime</b></div>
+                <div class="fact"><small>Best For</small><b>Bachelor, Masters & Professional Study</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. GBP 10,000 – 25,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. GBP 800 – 1,600 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Premium pathway with strong competition</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose the UK</h4><ul><li>Globally recognized education destination.</li><li>Wide range of universities and courses.</li><li>English-speaking environment.</li><li>Strong brand value for future career planning.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business & Management</li><li>Computer Science</li><li>Engineering</li><li>Healthcare</li><li>MBA / Masters</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('United Kingdom')">Apply for UK</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final UKVI rules, CAS, financial requirements and visa information should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-australia">
+            <div class="country-left">
+              <div class="bigflag">🇦🇺</div>
+              <h3>Australia</h3>
+              <p>Australia is one of the world’s most popular English-speaking study destinations, offering a wide range of universities, practical programs and multicultural student life.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Oceania</div>
+                <div class="badge"><span>💱</span> Currency: Australian Dollar (AUD)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Sydney, Melbourne, Brisbane, Perth</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Canberra</b></div>
+                <div class="fact"><small>Currency</small><b>Australian Dollar (AUD)</b></div>
+                <div class="fact"><small>Languages</small><b>English</b></div>
+                <div class="fact"><small>Climate</small><b>Varied; temperate to tropical</b></div>
+                <div class="fact"><small>Best For</small><b>Diploma, Bachelor, Masters & Research</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. AUD 20,000 – 45,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. AUD 1,200 – 2,500 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Strong global student destination</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Australia</h4><ul><li>Highly recognized universities and colleges.</li><li>English-speaking environment with multicultural cities.</li><li>Wide range of academic and vocational study pathways.</li><li>Popular destination for long-term international study planning.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business & Management</li><li>Information Technology</li><li>Engineering</li><li>Healthcare & Nursing</li><li>Hospitality & Tourism</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Australia')">Apply for Australia</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final visa subclass, financial and GTE/GS-related requirements should be checked before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-newzealand">
+            <div class="country-left">
+              <div class="bigflag">🇳🇿</div>
+              <h3>New Zealand</h3>
+              <p>New Zealand is known for its safe environment, quality education system and attractive lifestyle for international students seeking an English-speaking destination.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Oceania</div>
+                <div class="badge"><span>💱</span> Currency: New Zealand Dollar (NZD)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Auckland, Wellington, Christchurch, Hamilton</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Wellington</b></div>
+                <div class="fact"><small>Currency</small><b>New Zealand Dollar (NZD)</b></div>
+                <div class="fact"><small>Languages</small><b>English, Māori, NZ Sign Language</b></div>
+                <div class="fact"><small>Climate</small><b>Temperate maritime</b></div>
+                <div class="fact"><small>Best For</small><b>Diploma, Bachelor & Postgraduate Study</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. NZD 20,000 – 38,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. NZD 1,000 – 2,000 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Safe and lifestyle-focused destination</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose New Zealand</h4><ul><li>Safe and peaceful study environment.</li><li>English-speaking country with good education standards.</li><li>Appealing lifestyle and natural environment.</li><li>Strong option for students who want a balanced study experience.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business</li><li>Agriculture & Environmental Studies</li><li>Information Technology</li><li>Hospitality</li><li>Engineering</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('New Zealand')">Apply for New Zealand</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final student visa and institution requirements should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-greece">
+            <div class="country-left">
+              <div class="bigflag">🇬🇷</div>
+              <h3>Greece</h3>
+              <p>Greece is a historic European country that can be positioned as an attractive destination for students interested in Mediterranean lifestyle, tourism and selected academic pathways.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Southern Europe</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Athens, Thessaloniki, Patras</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Athens</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>Greek</b></div>
+                <div class="fact"><small>Climate</small><b>Mediterranean</b></div>
+                <div class="fact"><small>Best For</small><b>Tourism, Business & Selected Degree Pathways</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 4,000 – 10,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 500 – 900 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Historic European lifestyle destination</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Greece</h4><ul><li>European country with Mediterranean lifestyle.</li><li>Good positioning for tourism and hospitality-related interest.</li><li>Rich history and cultural environment.</li><li>Useful option to expand APJ’s European destination list.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Tourism & Hospitality</li><li>Business Management</li><li>Maritime Studies</li><li>International Relations</li><li>Arts & Culture Studies</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Greece')">Apply for Greece</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final consular process, appointment and visa requirements must be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-lithuania">
+            <div class="country-left">
+              <div class="bigflag">🇱🇹</div>
+              <h3>Lithuania</h3>
+              <p>Lithuania is a Baltic European study destination that can be presented as a practical option for students seeking an EU study pathway with modern city life.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Northern Europe / Baltic</div>
+                <div class="badge"><span>💱</span> Currency: Euro (EUR)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Vilnius, Kaunas, Klaipėda</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Vilnius</b></div>
+                <div class="fact"><small>Currency</small><b>Euro (EUR)</b></div>
+                <div class="fact"><small>Languages</small><b>Lithuanian</b></div>
+                <div class="fact"><small>Climate</small><b>Cool temperate</b></div>
+                <div class="fact"><small>Best For</small><b>Business, IT & Engineering</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 3,000 – 8,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 450 – 850 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>EU Baltic pathway option</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Lithuania</h4><ul><li>European Union study environment.</li><li>Modern cities with a student-friendly atmosphere.</li><li>Practical option for students comparing Baltic countries.</li><li>Good destination to widen APJ’s Europe portfolio.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business Administration</li><li>Information Technology</li><li>Engineering</li><li>Health Sciences</li><li>Logistics</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Lithuania')">Apply for Lithuania</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final visa process and institution-related information should be verified before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-hungary">
+            <div class="country-left">
+              <div class="bigflag">🇭🇺</div>
+              <h3>Hungary</h3>
+              <p>Hungary is a Central European destination known for value, student life and a range of degree options that can appeal to students seeking a European pathway.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: Central Europe</div>
+                <div class="badge"><span>💱</span> Currency: Hungarian Forint (HUF)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Budapest, Debrecen, Szeged, Pécs</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Budapest</b></div>
+                <div class="fact"><small>Currency</small><b>Hungarian Forint (HUF)</b></div>
+                <div class="fact"><small>Languages</small><b>Hungarian</b></div>
+                <div class="fact"><small>Climate</small><b>Continental</b></div>
+                <div class="fact"><small>Best For</small><b>Medicine, Engineering & Business</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. EUR 4,000 – 12,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. EUR 500 – 900 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Strong Central European student option</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Hungary</h4><ul><li>Central European study environment.</li><li>Budapest is a well-known student city.</li><li>Recognized for value-oriented degree options.</li><li>Good addition for APJ’s European destination range.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Medicine & Health Sciences</li><li>Engineering</li><li>Business Management</li><li>Computer Science</li><li>International Relations</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Hungary')">Apply for Hungary</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final residence permit, visa and university admission requirements should be checked before publishing.</div>
+            </div>
+          </article>
+
+          <article class="country-detail" id="country-canada">
+            <div class="country-left">
+              <div class="bigflag">🇨🇦</div>
+              <h3>Canada</h3>
+              <p>Canada is one of the most popular international study destinations in the world, known for strong education quality, multicultural cities and broad academic options.</p>
+              <div class="country-badges">
+                <div class="badge"><span>🌍</span> Region: North America</div>
+                <div class="badge"><span>💱</span> Currency: Canadian Dollar (CAD)</div>
+                <div class="badge"><span>🏙️</span> Student cities: Toronto, Vancouver, Montreal, Ottawa</div>
+              </div>
+            </div>
+            <div class="country-right">
+              <div class="facts">
+                <div class="fact"><small>Capital</small><b>Ottawa</b></div>
+                <div class="fact"><small>Currency</small><b>Canadian Dollar (CAD)</b></div>
+                <div class="fact"><small>Languages</small><b>English & French</b></div>
+                <div class="fact"><small>Climate</small><b>Varied; cold winters in many regions</b></div>
+                <div class="fact"><small>Best For</small><b>Diploma, Bachelor, PG & Masters</b></div>
+                <div class="fact"><small>Tuition Fee Range</small><b>Approx. CAD 13,000 – 30,000 / year</b></div>
+                <div class="fact"><small>Living Cost</small><b>Approx. CAD 800 – 1,800 / month</b></div>
+                <div class="fact"><small>APJ Note</small><b>Highly preferred by many international students</b></div>
+              </div>
+              <div class="info-cols">
+                <div class="info-box"><h4>Why Students Choose Canada</h4><ul><li>Strong global reputation for education.</li><li>Multicultural and welcoming cities.</li><li>Wide range of colleges and universities.</li><li>Popular choice for students comparing major English-speaking destinations.</li></ul></div>
+                <div class="info-box"><h4>Popular Study Areas</h4><ul><li>Business</li><li>Information Technology</li><li>Engineering</li><li>Healthcare</li><li>Hospitality & Supply Chain</li></ul></div>
+              </div>
+              <div class="country-actions"><a class="btn btn-blue" href="#apply" onclick="setDestination('Canada')">Apply for Canada</a><a class="btn btn-gold" href="#countries">Back to Countries</a></div>
+              <div class="source-note">Final study permit, SDS/non-SDS or related current visa process details should be verified before publishing.</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Our Services</div>
+          <h2>Complete Student Visa Support Under One Roof</h2>
+          <p>These service cards explain APJ’s support clearly for students and parents.</p>
+          <div class="underline"></div>
+        </div>
+        <div class="service-grid">
+          <div class="service-card"><div class="service-icon">🎯</div><h3>Profile Evaluation</h3><p>Review education, age, English level, financial background and future plan.</p></div>
+          <div class="service-card"><div class="service-icon">🌍</div><h3>Country Selection</h3><p>Compare destinations, course options, tuition range and pathway suitability.</p></div>
+          <div class="service-card"><div class="service-icon">🎓</div><h3>Admission Processing</h3><p>Support for college application, offer letter and tuition payment guidance.</p></div>
+          <div class="service-card"><div class="service-icon">📝</div><h3>SOP & Letters</h3><p>Embassy-style SOP, parent consent, sponsor affidavit and employment letters.</p></div>
+          <div class="service-card"><div class="service-icon">🏦</div><h3>Financial Guidance</h3><p>Bank statement, balance confirmation and sponsor income document guidance.</p></div>
+          <div class="service-card"><div class="service-icon">🛂</div><h3>Visa File Preparation</h3><p>Document order, form checking and appointment preparation support.</p></div>
+          <div class="service-card"><div class="service-icon">🏠</div><h3>Accommodation Guidance</h3><p>Help students understand accommodation options near the college or city.</p></div>
+          <div class="service-card"><div class="service-icon">✈️</div><h3>Travel & Pre-Departure</h3><p>Insurance, air ticketing and guidance before the student travels.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">How It Works</div>
+          <h2>Simple Student Visa Process</h2>
+          <p>This makes your website more professional and easy for new students to understand.</p>
+          <div class="underline"></div>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Consultation</h3><p>Understand student profile, budget, study goal and preferred country.</p></div>
+          <div class="step"><h3>Country & Course</h3><p>Compare countries, colleges, tuition fees, intakes and study pathway.</p></div>
+          <div class="step"><h3>Admission</h3><p>Apply to college, receive offer letter and guide payment requirements.</p></div>
+          <div class="step"><h3>Visa File</h3><p>Prepare SOP, forms, financial documents, affidavits and appointment file.</p></div>
+          <div class="step"><h3>Travel Support</h3><p>After approval, arrange insurance, ticket and pre-departure guidance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="container">
+        <div class="lead">
+          <div class="lead-copy">
+            <h2>Ready to Start Your Study Abroad Journey?</h2>
+            <p>Submit your details and APJ Consultancy can guide you on the best country, course and visa pathway for your profile.</p>
+            <a href="#contact" class="btn btn-gold">Contact APJ Now</a>
+          </div>
+          <form class="lead-form" onsubmit="event.preventDefault(); alert('Sample form only. Your developer can connect this to WhatsApp, email or CRM.');">
+            <div class="apply-note" id="applyCountryNote">Selected destination: General Inquiry</div>
+            <input placeholder="Full Name" required>
+            <input placeholder="Phone / WhatsApp Number" required>
+            <select id="destinationSelect" required>
+              <option value="">Preferred Destination</option>
+              <option>Malta</option>
+              <option>Dubai / UAE</option>
+              <option>Malaysia</option>
+              <option>Singapore</option>
+              <option>Spain</option>
+              <option>France</option>
+              <option>Latvia</option>
+              <option>Cyprus</option>
+              <option>Russia</option>
+              <option>United Kingdom</option>
+              <option>Australia</option>
+              <option>New Zealand</option>
+              <option>Greece</option>
+              <option>Lithuania</option>
+              <option>Hungary</option>
+              <option>Canada</option>
+            </select>
+            <select required>
+              <option value="">Highest Education</option>
+              <option>O/L Completed</option>
+              <option>A/L Completed</option>
+              <option>Diploma</option>
+              <option>Bachelor Degree</option>
+              <option>Master Degree</option>
+            </select>
+            <textarea rows="3" placeholder="Tell us your study plan"></textarea>
+            <button class="btn btn-gold" type="submit">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h2>Contact APJ Consultancy</h2>
+          <p>Book a consultation through WhatsApp, phone or branch visit.</p>
+          <div class="branch"><b>Kuliyapitiya Branch</b>02nd Floor, Union Arcade, Kuliyapitiya<br>Phone: 076 794 3327</div>
+          <div class="branch"><b>Matara Branch</b>Hiththatiya, Matara<br>Phone: 077 282 8375</div>
+          <div class="branch"><b>Email & Website</b>info@apjconsultancy.com<br>www.apjconsultancy.com</div>
+        </div>
+        <div>
+          <div class="section-title left" style="margin-bottom:24px">
+            <div class="kicker">FAQ</div>
+            <h2>Questions Students Ask</h2>
+            <p>FAQ content makes the website more professional and reduces repeated WhatsApp questions.</p>
+            <div class="underline"></div>
+          </div>
+          <div class="faq-list">
+            <div class="faq"><h3>Can APJ guarantee visa approval?</h3><p>No consultancy can guarantee an embassy decision. APJ can guide students professionally and prepare a complete visa file.</p></div>
+            <div class="faq"><h3>Can I select a country after consultation?</h3><p>Yes. APJ can compare countries based on education level, financial ability, future goals and course availability.</p></div>
+            <div class="faq"><h3>Can APJ support accommodation and ticketing?</h3><p>Yes. After visa approval, APJ can guide students with accommodation options, travel insurance, ticketing and pre-departure preparation.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating" href="#contact">🟢 WhatsApp APJ</a>
+
+  <footer>
+    <div class="footer-grid">
+      <div><h3>APJ Consultancy</h3><p>Professional student visa and travel consultancy support for Sri Lankan students planning to study abroad.</p></div>
+      <div><h3>Quick Links</h3><div class="footer-links"><a href="#about">About Us</a><a href="#countries">Countries</a><a href="#services">Services</a><a href="#process">Process</a></div></div>
+      <div><h3>Destinations</h3><div class="footer-links"><a href="#country-malta">Malta</a><a href="#country-dubai">Dubai / UAE</a><a href="#country-malaysia">Malaysia</a><a href="#country-singapore">Singapore</a><a href="#country-australia">Australia</a><a href="#country-canada">Canada</a></div></div>
+      <div><h3>Important Pages</h3><div class="footer-links"><a>Terms & Conditions</a><a>Privacy Policy</a><a>Refund Policy</a><a>Visa Disclaimer</a></div></div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 APJ Consultancy. Sample concept only.</span>
+      <span>Final country and visa information must be officially verified before publishing.</span>
+    </div>
+  </footer>
+  <script>
+    function setDestination(country){
+      const select = document.getElementById('destinationSelect');
+      const note = document.getElementById('applyCountryNote');
+      if(select){
+        select.value = country;
+        select.style.boxShadow = '0 0 0 3px rgba(249,178,51,.55)';
+        setTimeout(() => { select.style.boxShadow = 'none'; }, 1400);
+      }
+      if(note){
+        note.textContent = 'Selected destination: ' + country;
+      }
+      const apply = document.getElementById('apply');
+      if(apply){
+        apply.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }
+  </script>
+</body>
+</html>

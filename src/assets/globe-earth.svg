@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-label="Earth globe">
+  <defs>
+    <radialGradient id="ocean" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#5CC4E4"/>
+      <stop offset="35%" stop-color="#26A9D4"/>
+      <stop offset="70%" stop-color="#1E8AB0"/>
+      <stop offset="100%" stop-color="#1D2B63"/>
+    </radialGradient>
+    <radialGradient id="highlight" cx="30%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shade" cx="72%" cy="78%" r="50%">
+      <stop offset="0%" stop-color="#151F4D" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#151F4D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="atmosphere" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#26A9D4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1D2B63" stop-opacity="0.05"/>
+    </linearGradient>
+    <clipPath id="sphere">
+      <circle cx="256" cy="256" r="210"/>
+    </clipPath>
+  </defs>
+
+  <!-- Atmosphere halo -->
+  <circle cx="256" cy="256" r="232" fill="url(#atmosphere)" opacity="0.55"/>
+
+  <!-- Ocean sphere -->
+  <circle cx="256" cy="256" r="210" fill="url(#ocean)"/>
+
+  <!-- Continents -->
+  <g clip-path="url(#sphere)" fill="#3D8B5E" opacity="0.92">
+    <!-- North America -->
+    <path d="M92 168c18-28 52-42 78-36 14 24 8 58-12 78-22 18-48 12-66-8-10-14-8-24 0-34z"/>
+    <path d="M118 118c28-8 48 6 54 28-16 10-34 8-48-4-10-10-12-18-6-24z" fill="#4A9B68"/>
+    <!-- South America -->
+    <path d="M168 248c10-6 24-4 32 10 14 26 10 62-8 88-16 22-34 18-40-2-8-28 4-72 16-96z" fill="#358052"/>
+    <!-- Europe / Africa -->
+    <path d="M248 132c22-10 42-2 48 18 6 22-4 44-20 52-18 8-36-2-44-18-8-18 0-40 16-52z"/>
+    <path d="M252 198c18-4 30 10 34 34 6 34-8 78-24 98-14 18-30 12-36-8-8-28 8-92 26-124z" fill="#2F7348"/>
+    <!-- Asia -->
+    <path d="M296 118c48-12 88 8 104 42 12 26 4 58-18 72-28 18-62 8-82-16-18-22-16-58 4-78 8-8 14-14 12-20z" fill="#4A9B68"/>
+  </g>
+
+  <!-- Secondary landmass detail -->
+  <g clip-path="url(#sphere)" fill="#5CB078" opacity="0.75">
+    <ellipse cx="318" cy="156" rx="34" ry="18"/>
+    <ellipse cx="206" cy="286" rx="22" ry="30"/>
+    <path d="M350 220c16 8 24 24 18 38-8 18-28 22-42 10-12-10-8-32 6-42 8-4 14-6 18-6z"/>
+  </g>
+
+  <!-- Australia -->
+  <g clip-path="url(#sphere)">
+    <ellipse cx="372" cy="312" rx="28" ry="20" fill="#3D8B5E" opacity="0.9"/>
+  </g>
+
+  <!-- Latitude lines -->
+  <g clip-path="url(#sphere)" stroke="#FFFFFF" stroke-opacity="0.08" fill="none">
+    <ellipse cx="256" cy="256" rx="210" ry="70"/>
+    <ellipse cx="256" cy="256" rx="210" ry="140"/>
+    <line x1="46" y1="256" x2="466" y2="256"/>
+  </g>
+
+  <!-- Lighting -->
+  <circle cx="256" cy="256" r="210" fill="url(#highlight)"/>
+  <circle cx="256" cy="256" r="210" fill="url(#shade)"/>
+
+  <!-- Rim light -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="2"/>
+  <circle cx="256" cy="256" r="208" fill="none" stroke="#26A9D4" stroke-opacity="0.22" stroke-width="1.5"/>
+</svg>

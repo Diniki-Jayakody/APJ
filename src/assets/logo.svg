@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="28" fill="#1D2B63"/>
+  <path d="M20 38 L60 20 L100 38 L60 56 Z" fill="#26A9D4"/>
+  <text x="60" y="92" text-anchor="middle" fill="white" font-family="Inter,sans-serif" font-weight="900" font-size="28">APJ</text>
+</svg>
