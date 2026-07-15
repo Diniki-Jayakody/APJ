@@ -7,6 +7,9 @@ import { useConsultationForm } from '../hooks/useConsultationForm';
 import Section from '../components/layout/Section';
 import Button from '../components/ui/Button';
 
+const fieldClassName =
+  'rounded-xl border border-white/20 bg-white/15 px-4 py-3 text-sm text-white placeholder:text-white/55 shadow-none outline-none transition-colors focus:border-secondary-light focus:ring-2 focus:ring-secondary/35';
+
 export const ApplySection = () => {
   const { selectedDestination } = useFormContext();
   const { formData, updateField, submit, status, errors } = useConsultationForm(selectedDestination);
@@ -38,9 +41,10 @@ export const ApplySection = () => {
               placeholder={strings.form.name}
               value={formData.name}
               onChange={(e) => updateField('name', e.target.value)}
-              className="rounded-xl border-0 px-4 py-3 text-sm text-ink"
+              className={fieldClassName}
               aria-label={strings.form.name}
               aria-invalid={!!errors.name}
+              required
             />
             {errors.name && <p className="text-xs text-red-200">{errors.name}</p>}
             <input
@@ -48,32 +52,39 @@ export const ApplySection = () => {
               placeholder={strings.form.phone}
               value={formData.phone}
               onChange={(e) => updateField('phone', e.target.value)}
-              className="rounded-xl border-0 px-4 py-3 text-sm text-ink"
+              className={fieldClassName}
               aria-label={strings.form.phone}
               aria-invalid={!!errors.phone}
+              required
             />
             {errors.phone && <p className="text-xs text-red-200">{errors.phone}</p>}
             <select
               value={formData.destination}
               onChange={(e) => updateField('destination', e.target.value)}
-              className="rounded-xl border-0 px-4 py-3 text-sm text-ink"
+              className={`${fieldClassName} ${formData.destination ? 'text-white' : 'text-white/55'}`}
               aria-label={strings.form.destination}
+              required
             >
-              <option value="">{strings.form.destination}</option>
+              <option value="" className="bg-navy-900 text-white">{strings.form.destination}</option>
               {countries.map((c) => (
-                <option key={c.id} value={c.applyName}>{c.applyName}</option>
+                <option key={c.id} value={c.applyName} className="bg-navy-900 text-white">
+                  {c.applyName}
+                </option>
               ))}
             </select>
             {errors.destination && <p className="text-xs text-red-200">{errors.destination}</p>}
             <select
               value={formData.education}
               onChange={(e) => updateField('education', e.target.value)}
-              className="rounded-xl border-0 px-4 py-3 text-sm text-ink"
+              className={`${fieldClassName} ${formData.education ? 'text-white' : 'text-white/55'}`}
               aria-label={strings.form.education}
+              required
             >
-              <option value="">{strings.form.education}</option>
+              <option value="" className="bg-navy-900 text-white">{strings.form.education}</option>
               {strings.form.educationOptions.map((opt) => (
-                <option key={opt} value={opt}>{opt}</option>
+                <option key={opt} value={opt} className="bg-navy-900 text-white">
+                  {opt}
+                </option>
               ))}
             </select>
             {errors.education && <p className="text-xs text-red-200">{errors.education}</p>}
@@ -82,7 +93,7 @@ export const ApplySection = () => {
               placeholder={strings.form.message}
               value={formData.message}
               onChange={(e) => updateField('message', e.target.value)}
-              className="rounded-xl border-0 px-4 py-3 text-sm text-ink"
+              className={`${fieldClassName} resize-y`}
               aria-label={strings.form.message}
             />
             <Button type="submit" variant="secondary" disabled={status === 'loading'}>

@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import ApprovalStamp from '../ui/ApprovalStamp';
-import { approvalStamps } from '../../data/siteContent';
+import { approvalStampImages } from '../../data/assets';
 
 /**
  * Desktop: absolute stamps around the globe.
- * Mobile: horizontal/wrap row below the globe (handled by parent via layout prop).
+ * Mobile: horizontal/wrap row below the globe.
  */
 export const HeroComposition = ({
   className,
@@ -15,8 +15,14 @@ export const HeroComposition = ({
   if (layout === 'mobile') {
     return (
       <div className={cn('flex flex-wrap items-start justify-center gap-3 pt-2', className)}>
-        {approvalStamps.map((stamp, i) => (
-          <ApprovalStamp key={stamp.id} label={stamp.label} rotate={stamp.rotate * 0.4} index={i} />
+        {approvalStampImages.map((stamp, i) => (
+          <ApprovalStamp
+            key={stamp.id}
+            src={stamp.src}
+            alt={stamp.alt}
+            rotate={stamp.rotate * 0.35}
+            index={i}
+          />
         ))}
       </div>
     );
@@ -24,18 +30,23 @@ export const HeroComposition = ({
 
   return (
     <div className={cn('pointer-events-none absolute inset-0 z-20', className)}>
-      {approvalStamps.map((stamp, i) => (
+      {approvalStampImages.map((stamp, i) => (
         <motion.div
           key={stamp.id}
           className="absolute"
           style={{
             left: stamp.desktop.left,
             top: stamp.desktop.top,
-            x: mouseOffset.x * (i + 1) * 0.25,
-            y: mouseOffset.y * (i + 1) * 0.25,
+            x: mouseOffset.x * (i + 1) * 0.22,
+            y: mouseOffset.y * (i + 1) * 0.22,
           }}
         >
-          <ApprovalStamp label={stamp.label} rotate={stamp.rotate} index={i} />
+          <ApprovalStamp
+            src={stamp.src}
+            alt={stamp.alt}
+            rotate={stamp.rotate}
+            index={i}
+          />
         </motion.div>
       ))}
     </div>

@@ -1,3 +1,12 @@
+
+import greece from '../assets/countries/greece.jpg';
+import hungary from '../assets/countries/hungary.jpg';
+import latvia from '../assets/countries/latvia.jpg';
+import russia from '../assets/countries/russia.jpg';
+import spain from '../assets/countries/spain.jpg';
+import singapore from '../assets/countries/singapore.jpg';
+import canada from '../assets/countries/canada.jpg';
+
 /**
  * Destination hero images — Unsplash (optimized via auto=format)
  * Centralized so components never hardcode image URLs.
@@ -19,11 +28,11 @@ export const countryImages = {
     alt: 'Kuala Lumpur Petronas Towers',
   },
   singapore: {
-    src: unsplash('1565967511841-47a60b7625df'),
+    src: singapore,
     alt: 'Marina Bay Sands skyline, Singapore',
   },
   spain: {
-    src: unsplash('1558642452-9d2a1240d7ff'),
+    src: spain,
     alt: 'Barcelona cityscape, Spain',
   },
   france: {
@@ -31,7 +40,7 @@ export const countryImages = {
     alt: 'Eiffel Tower, Paris',
   },
   latvia: {
-    src: unsplash('1578662996442-48f60103fc96'),
+    src: latvia,
     alt: 'Riga old town, Latvia',
   },
   cyprus: {
@@ -39,7 +48,7 @@ export const countryImages = {
     alt: 'Mediterranean coastline, Cyprus',
   },
   russia: {
-    src: unsplash('1513326738677-b964753b0a76'),
+    src: russia,
     alt: 'Saint Basil Cathedral, Moscow',
   },
   uk: {
@@ -55,7 +64,7 @@ export const countryImages = {
     alt: 'Mountain lake landscape, New Zealand',
   },
   greece: {
-    src: unsplash('1533105079780-fdcd5d41bc70'),
+    src: greece,
     alt: 'Santorini white buildings and blue sea',
   },
   lithuania: {
@@ -63,11 +72,11 @@ export const countryImages = {
     alt: 'Vilnius old town, Lithuania',
   },
   hungary: {
-    src: unsplash('1541343655690-b22599079a5c'),
+    src: hungary,
     alt: 'Parliament building along the Danube, Budapest',
   },
   canada: {
-    src: unsplash('1503614471-8b4bbad91c0e'),
+    src: canada,
     alt: 'Moraine Lake, Canadian Rockies',
   },
 };

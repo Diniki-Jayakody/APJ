@@ -9,7 +9,7 @@ export const strings = {
     title: 'Dream Globally.',
     titleAccent: 'Apply Confidently.',
     subtitle:
-      'From Sri Lanka to the world — APJ Consultancy guides students through country selection, admissions, visa documentation, and every step until departure.',
+      'APJ Consultancy guides students through country selection, admissions, visa documentation, and every step until departure.',
     cta: {
       consultation: 'Book Consultation',
       destinations: 'Explore Destinations',
@@ -19,7 +19,7 @@ export const strings = {
   stats: [
     { id: 'cases', value: 600, suffix: '+', label: 'Success Cases', icon: 'trophy' },
     { id: 'countries', value: 12, suffix: '+', label: 'Countries', icon: 'globe' },
-    { id: 'success', value: 98, suffix: '%', label: 'Visa Success', icon: 'shield' },
+    { id: 'success', value: 100, suffix: '%', label: 'Visa Success', icon: 'shield' },
     { id: 'support', value: 24, suffix: '/7', label: 'Support', icon: 'headset' },
   ],
   sections: {
@@ -90,7 +90,7 @@ export const strings = {
     phone: 'Phone / WhatsApp Number',
     destination: 'Preferred Destination',
     education: 'Highest Education',
-    message: 'Tell us your study plan',
+    message: 'Tell us your study plan (optional)',
     submit: 'Submit Inquiry',
     loading: 'Sending...',
     success: 'Thank you! APJ will contact you shortly.',

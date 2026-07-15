@@ -1,47 +1,49 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { IoCheckmark } from 'react-icons/io5';
 import { cn } from '../../utils/cn';
 
-export const ApprovalStamp = ({ label, rotate = 0, className, index = 0 }) => (
-  <motion.div
-    className={cn('relative w-[148px] select-none md:w-[160px]', className)}
-    animate={{ y: [0, -6, 0] }}
-    transition={{ duration: 4.5 + index * 0.4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.25 }}
-    style={{ rotate }}
-    aria-hidden
-  >
-    <div
-      className="relative overflow-hidden rounded-md border-[3px] border-dashed border-red-700/80 bg-[#FBF7F0] px-3 py-3 shadow-brand-md"
-      style={{
-        backgroundImage:
-          'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(120,40,30,0.015) 2px, rgba(120,40,30,0.015) 3px)',
-      }}
+export const ApprovalStamp = ({ src, alt, rotate = 0, className, index = 0 }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), index * 1000);
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  return (
+    <motion.div
+      className={cn('relative w-[136px] select-none sm:w-[152px] md:w-[168px] xl:w-[186px]', className)}
+      initial={{ opacity: 0, scale: 0.55 }}
+      animate={
+        visible
+          ? { opacity: 1, scale: 1, y: [0, -5, 0] }
+          : { opacity: 0, scale: 0.55, y: 0 }
+      }
+      transition={
+        visible
+          ? {
+              opacity: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+              scale: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+              y: {
+                duration: 4.6 + index * 0.35,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.55,
+              },
+            }
+          : { duration: 0.2 }
+      }
+      style={{ rotate }}
+      aria-hidden={!alt}
     >
-      {/* Embossed inner frame */}
-      <div className="absolute inset-1 rounded-sm border border-red-800/20 pointer-events-none" />
-
-      <div className="relative flex flex-col items-center text-center">
-        {/* Circular seal */}
-        <div className="relative mb-2 flex h-12 w-12 items-center justify-center">
-          <div className="absolute inset-0 rounded-full border-[3px] border-double border-red-700" />
-          <div className="absolute inset-[3px] rounded-full border border-red-600/50" />
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-700 text-white shadow-inner">
-            <IoCheckmark className="text-lg" aria-hidden />
-          </div>
-        </div>
-
-        <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-red-800/90">
-          Official Seal
-        </p>
-        <p className="mt-1 text-[10px] font-semibold leading-snug uppercase tracking-wide text-red-900 md:text-[11px]">
-          {label}
-        </p>
-        <p className="mt-1.5 text-[8px] font-medium uppercase tracking-wider text-red-700/70">
-          APJ Verified
-        </p>
-      </div>
-    </div>
-  </motion.div>
-);
+      <img
+        src={src}
+        alt={alt || ''}
+        draggable={false}
+        className="h-auto w-full drop-shadow-[0_12px_28px_rgba(29,43,99,0.22)]"
+      />
+    </motion.div>
+  );
+};
 
 export default ApprovalStamp;

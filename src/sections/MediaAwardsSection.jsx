@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { IoPlay } from 'react-icons/io5';
 import { strings } from '../constants/strings';
-import { recognitionStats } from '../data/siteContent';
 import { awardsGallery, certificatesGallery, mediaPresenceGallery } from '../data/assets';
 import Section from '../components/layout/Section';
 import Heading from '../components/ui/Heading';
@@ -16,7 +15,7 @@ const MediaPresenceCard = ({ item, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.06 }}
-    className="group block overflow-hidden rounded-2xl border border-line bg-white shadow-brand-sm transition-shadow hover:shadow-brand-md"
+    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-brand-sm transition-shadow hover:shadow-brand-md"
   >
     <div className="relative">
       <LazyImage
@@ -31,7 +30,7 @@ const MediaPresenceCard = ({ item, index }) => (
         </span>
       </span>
     </div>
-    <div className="p-4 sm:p-5">
+    <div className="flex flex-1 items-center p-4 sm:p-5">
       <h3 className="font-semibold text-navy-900">{item.title}</h3>
     </div>
   </motion.a>
@@ -43,7 +42,7 @@ const AwardCard = ({ item, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: 0.08 + index * 0.07 }}
-    className="group overflow-hidden rounded-2xl border border-line bg-white shadow-brand-sm transition-shadow hover:shadow-brand-md"
+    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-brand-sm transition-shadow hover:shadow-brand-md"
   >
     <LazyImage
       src={item.src}
@@ -51,7 +50,7 @@ const AwardCard = ({ item, index }) => (
       aspectRatio="16 / 10"
       className="transition-transform duration-700 group-hover:scale-105"
     />
-    <div className="p-4 sm:p-5">
+    <div className="flex flex-1 items-center p-4 sm:p-5">
       <h3 className="font-semibold text-navy-900">{item.title}</h3>
     </div>
   </motion.article>
@@ -86,38 +85,23 @@ export const MediaAwardsSection = () => (
       description={strings.sections.media.description}
     />
 
-    <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      {recognitionStats.map((stat, i) => (
-        <motion.div
-          key={stat.id}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.05 }}
-          className="rounded-xl border border-line bg-white px-4 py-3 text-center shadow-brand-sm"
-        >
-          <p className="text-sm font-semibold leading-snug text-navy-900">{stat.label}</p>
-        </motion.div>
-      ))}
-    </div>
-
-    <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-      <div>
+    <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="flex flex-col">
         <h3 className="mb-5 text-lg font-semibold text-navy-900">
           {strings.sections.media.mediaTitle}
         </h3>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+        <div className="grid flex-1 grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
           {mediaPresenceGallery.map((item, index) => (
             <MediaPresenceCard key={item.id} item={item} index={index} />
           ))}
         </div>
       </div>
 
-      <div>
+      <div className="flex h-full flex-col">
         <h3 className="mb-5 text-lg font-semibold text-navy-900">
           {strings.sections.media.awardsTitle}
         </h3>
-        <div className="flex flex-col gap-4">
+        <div className="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-1">
           {awardsGallery.map((item, index) => (
             <AwardCard key={item.id} item={item} index={index} />
           ))}

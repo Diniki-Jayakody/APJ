@@ -1,58 +1,137 @@
+import { IoCallOutline, IoMailOutline, IoLocationOutline, IoGlobeOutline } from 'react-icons/io5';
 import { strings } from '../constants/strings';
 import { contact } from '../constants/contact';
 import { faqs, trustItems, partnerUniversities } from '../data/siteContent';
 import Section from '../components/layout/Section';
 import Heading from '../components/ui/Heading';
-import ContactCard from '../components/ui/ContactCard';
 import FAQItem from '../components/ui/FAQItem';
 import { getServiceIcon } from '../utils/icons';
+
+const BranchCard = ({ branch }) => (
+  <article className="flex h-full flex-col rounded-2xl border border-white/20 bg-white/10 p-5 shadow-brand-sm backdrop-blur-sm">
+    <div className="mb-3 flex items-start justify-between gap-3">
+      <div>
+        {/* <p className="text-[11px] font-medium uppercase tracking-wide text-sky-100/80">Branch</p> */}
+        <h3 className="mt-1 text-lg font-semibold text-white">{branch.name}</h3>
+      </div>
+      <a
+        href={branch.mapUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/25 bg-white/10 text-sky-100 transition-colors hover:bg-white/20 hover:text-white"
+        aria-label={`Open ${branch.name} on Google Maps`}
+      >
+        <IoLocationOutline className="text-xl" aria-hidden />
+      </a>
+    </div>
+
+    <p className="text-sm leading-relaxed text-sky-100/90">{branch.address}</p>
+
+    <div className="mt-4 space-y-2 border-t border-white/15 pt-4">
+      <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-sky-100/70">
+        <IoCallOutline aria-hidden /> Contact Numbers
+      </p>
+      <div className="flex flex-row gap-1.5">
+        {contact.phones.map((phone) => (
+          <a
+            key={`${branch.id}-${phone.link}`}
+            href={phone.link}
+            className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
+          >
+            {phone.display},
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {/* <div className="mt-4 space-y-1 border-t border-white/15 pt-4">
+      <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-sky-100/70">
+        <IoMailOutline aria-hidden /> Email
+      </p>
+      <a
+        href={`mailto:${contact.email}`}
+        className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
+      >
+        {contact.email}
+      </a>
+    </div> */}
+
+    <a
+      href={branch.mapUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-secondary-light hover:text-white"
+    >
+      <IoLocationOutline aria-hidden />
+      Open in Google Maps
+    </a>
+  </article>
+);
+
+const SharedContactCard = () => (
+  <article className="flex h-full flex-col rounded-2xl border border-white/20 bg-white/10 p-5 shadow-brand-sm backdrop-blur-sm">
+    <p className="text-[11px] font-medium uppercase tracking-wide text-sky-100/80">Shared Contact</p>
+    <h3 className="mt-1 text-lg font-semibold text-white">APJ Consultancy</h3>
+    <p className="mt-2 text-sm leading-relaxed text-sky-100/90">
+      Reach our team by email or visit the official website for the latest updates.
+    </p>
+
+    <div className="mt-3 space-y-4 border-t border-white/15 pt-4">
+      <div>
+        <p className="mb-1 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-sky-100/70">
+          <IoMailOutline aria-hidden /> Main Email
+        </p>
+        <a
+          href={`mailto:${contact.email}`}
+          className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
+        >
+          {contact.email}
+        </a>
+      </div>
+      <div>
+        <p className="mb-1 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-sky-100/70">
+          <IoGlobeOutline aria-hidden /> Official Website
+        </p>
+        <a
+          href={contact.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-white underline-offset-2 transition-colors hover:text-secondary-light hover:underline"
+        >
+          {contact.websiteUrl}
+        </a>
+      </div>
+      <div>
+        <p className="mb-1 text-xs font-medium uppercase tracking-wide text-sky-100/70">WhatsApp</p>
+        <a
+          href={contact.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
+        >
+          {contact.whatsappDisplay}
+        </a>
+      </div>
+    </div>
+  </article>
+);
 
 export const ContactSection = () => (
   <Section id="contact" background="soft">
     <div className="grid gap-10 lg:grid-cols-2">
-      <div className="rounded-3xl bg-gradient-to-br from-navy-900 to-secondary p-8 text-white shadow-brand-md">
-        <h2 className="text-3xl font-semibold">{strings.sections.contact.title}</h2>
-        <p className="mt-2 font-normal leading-relaxed text-sky-100/90">{strings.sections.contact.description}</p>
-        <div className="mt-6 space-y-3">
-          {contact.branches.map((b) => (
-            <ContactCard key={b.id} icon="location">
-              <b>{b.name}</b>
-              {b.address}
-              <br />
-              <a
-                href={b.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sky-100 underline-offset-2 hover:text-white hover:underline"
-              >
-                View on Google Maps
-              </a>
-            </ContactCard>
-          ))}
-          <ContactCard icon="phone">
-            <b>Call APJ</b>
-            <span className="mt-1 flex flex-col gap-1">
-              {contact.phones.map((phone) => (
-                <a key={phone.link} href={phone.link} className="hover:text-white">
-                  {phone.display}
-                </a>
-              ))}
-            </span>
-          </ContactCard>
-          <ContactCard icon="email">
-            <a href={`mailto:${contact.email}`} className="hover:text-white">{contact.email}</a>
-            <br />
-            <a
-              href={contact.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white"
-            >
-              WhatsApp: {contact.whatsappDisplay}
-            </a>
-            <br />
-            {contact.website}
-          </ContactCard>
+      <div>
+        <h2 className="text-3xl font-semibold text-navy-900">{strings.sections.contact.title}</h2>
+        <p className="mt-2 max-w-xl font-normal leading-relaxed text-muted">
+          {strings.sections.contact.description}
+        </p>
+
+        <div className="mt-3 rounded-3xl bg-gradient-to-br from-navy-900 to-secondary p-5 text-white shadow-brand-md sm:p-6">
+          <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-1">
+            {contact.branches.map((branch) => (
+              <BranchCard key={branch.id} branch={branch} />
+            ))}
+            {/* <SharedContactCard /> */}
+          </div>
         </div>
       </div>
 
@@ -91,11 +170,19 @@ export const TrustSection = () => (
         );
       })}
     </div>
-    <div className="mt-10 rounded-2xl border border-line bg-sky-50 p-6">
-      <p className="mb-4 text-center text-sm font-medium uppercase tracking-wide text-muted">Partner Universities</p>
+    <div className="mt-10 rounded-3xl border border-secondary/25 bg-gradient-to-br from-sky-100 via-white to-sky-50 p-7 shadow-brand-sm ring-1 ring-secondary/15 sm:p-8">
+      <p className="mb-2 text-center text-xs font-semibold uppercase tracking-[0.14em] text-secondary">
+        Partner Universities
+      </p>
+      <p className="mb-5 text-center text-sm font-normal text-muted">
+        Trusted academic pathways through recognized partner institutions.
+      </p>
       <div className="flex flex-wrap justify-center gap-3">
         {partnerUniversities.map((uni) => (
-          <span key={uni} className="rounded-full border border-line bg-white px-4 py-2 text-xs font-medium text-navy-900">
+          <span
+            key={uni}
+            className="rounded-full border border-secondary/25 bg-white px-4 py-2 text-xs font-semibold text-navy-900 shadow-brand-sm"
+          >
             {uni}
           </span>
         ))}

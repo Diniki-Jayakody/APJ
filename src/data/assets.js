@@ -1,6 +1,7 @@
 import awards1 from '../assets/awards/awards_1.jpeg';
 import awards2 from '../assets/awards/awards_2.jpeg';
 import awards3 from '../assets/awards/awards_3.jpeg';
+import awards4 from '../assets/awards/awards_4.jpeg';
 import certificate1 from '../assets/certificates/certificate_1.jpg';
 import certificate2 from '../assets/certificates/certificate_2.jpg';
 import certificate3 from '../assets/certificates/certificate_3.jpg';
@@ -21,6 +22,11 @@ import studentUmaya from '../assets/testimonials/student_Umaya.jpeg';
 import youtube1 from '../assets/mediaPresence/youtube_1.jpeg';
 import youtube2 from '../assets/mediaPresence/youtube_2.jpeg';
 import youtube3 from '../assets/mediaPresence/youtube_3.jpeg';
+import youtube4 from '../assets/mediaPresence/youtube_4.jpg';
+
+import stampVisa from '../assets/stamps/visa_approved_stamp.png';
+import stampUniversity from '../assets/stamps/university_selected_stamp.png';
+import stampDocuments from '../assets/stamps/documents_certified_stamp.png';
 
 export const brandLogo = logo;
 
@@ -28,6 +34,7 @@ const mediaThumbnails = {
   youtube_1: youtube1,
   youtube_2: youtube2,
   youtube_3: youtube3,
+  youtube_4: youtube4,
 };
 
 export const studentPhotos = {
@@ -67,6 +74,17 @@ export const awardsGallery = [
     year: '2024',
     description: 'Celebrating a trusted partnership that opens stronger pathways for Sri Lankan students.',
   },
+
+  {
+    id: 'awards_4',
+    src: awards4,
+    alt: 'APJ Consultancy representing at Academies Australasia College award ceremony',
+    title: 'Winning Moment',
+    issuer: 'Academies Australasia College',
+    year: '2024',
+    description: 'Celebrating a trusted partnership that opens stronger pathways for Sri Lankan students.',
+  },
+
 ];
 
 export const certificatesGallery = [
@@ -98,23 +116,55 @@ export const mediaPresenceGallery = [
   {
     id: 'youtube_1',
     src: mediaThumbnails.youtube_1,
-    title: '13 November 2024',
-    url: 'https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji',
-    alt: 'APJ Consultancy media appearance — 13 November 2024',
+    title: '15 June 2024',
+    url: 'https://youtu.be/wa_hplYE8rY?si=FgUdOQVRB4a5MBMy',
+    alt: 'APJ Consultancy media appearance — 15 June 2024',
   },
   {
     id: 'youtube_2',
     src: mediaThumbnails.youtube_2,
-    title: '13 December 2024',
+    title: '13 November 2024',
     url: 'https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji',
-    alt: 'APJ Consultancy media appearance — 13 December 2024',
+    alt: 'APJ Consultancy media appearance — 13 November 2024',
+  },
+
+  {
+    id: 'youtube_4',
+    src: mediaThumbnails.youtube_4,
+    title: '18 November 2024',
+    url: 'https://youtu.be/tmEvlF9UCfk?si=inf8MCNZ6VrmlPER',
+    alt: 'APJ Consultancy media appearance — 18 November 2024',
   },
   {
     id: 'youtube_3',
     src: mediaThumbnails.youtube_3,
-    title: '13 January 2025',
-    url: 'https://youtu.be/yf_dFrko7W8?si=ydGkJcxHJSbZW7Ji',
-    alt: 'APJ Consultancy media appearance — 13 January 2025',
+    title: '20 September 2025',
+    url: 'ttps://www.youtube.com/live/qYxmAJnG664?si=n1DgyDii8bbB0odX',
+    alt: 'APJ Consultancy media appearance — 20 September 2025',
+  },
+];
+
+export const approvalStampImages = [
+  {
+    id: 'visa',
+    src: stampVisa,
+    alt: 'Student Visa Approved — APJ Consultancy official stamp',
+    rotate: -10,
+    desktop: { left: '0%', top: '2%' },
+  },
+  {
+    id: 'university',
+    src: stampUniversity,
+    alt: 'University Selected — APJ Consultancy official stamp',
+    rotate: 8,
+    desktop: { left: '72%', top: '0%' },
+  },
+  {
+    id: 'docs',
+    src: stampDocuments,
+    alt: 'Documents Certified — APJ Consultancy official stamp',
+    rotate: -6,
+    desktop: { left: '68%', top: '62%' },
   },
 ];
 
@@ -156,6 +206,7 @@ export default {
   awardsGallery,
   certificatesGallery,
   mediaPresenceGallery,
+  approvalStampImages,
   officeGallery,
   studentPhotos,
 };

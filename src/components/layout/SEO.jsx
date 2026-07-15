@@ -5,7 +5,8 @@ import { contact } from '../../constants/contact';
 export const SEO = ({ title, description, path = '/' }) => {
   const pageTitle = title ? `${title} | ${strings.brand.name}` : strings.seo.title;
   const pageDescription = description || strings.seo.description;
-  const url = `https://${contact.website}${path}`;
+  const siteOrigin = contact.websiteUrl || `https://${contact.website}`;
+  const url = `${siteOrigin}${path}`;
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -33,9 +34,9 @@ export const SEO = ({ title, description, path = '/' }) => {
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={`https://${contact.website}/apj_logo.png`} />
+      <meta property="og:image" content={`${siteOrigin}/apj_logo.png`} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={`https://${contact.website}/apj_logo.png`} />
+      <meta name="twitter:image" content={`${siteOrigin}/apj_logo.png`} />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

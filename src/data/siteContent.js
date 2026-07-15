@@ -116,34 +116,3 @@ export const partnerUniversities = [
   'Paris School of Business',
   'Heriot-Watt Dubai',
 ];
-
-export const recognitionStats = [
-  { id: 'tv', label: 'Featured on National Television' },
-  { id: 'interviews', label: 'Multiple Media Interviews' },
-  { id: 'award', label: 'Award-Winning Consultancy' },
-  { id: 'stories', label: 'Hundreds of Student Success Stories' },
-];
-
-export const approvalStamps = [
-  {
-    id: 'visa',
-    label: 'STUDENT VISA APPROVED',
-    rotate: -8,
-    desktop: { left: '2%', top: '0%' },
-    mobile: { order: 1 },
-  },
-  {
-    id: 'university',
-    label: 'UNIVERSITY ACCEPTED',
-    rotate: 7,
-    desktop: { left: '68%', top: '4%' },
-    mobile: { order: 2 },
-  },
-  {
-    id: 'docs',
-    label: 'DOCUMENT VERIFIED',
-    rotate: -5,
-    desktop: { left: '70%', top: '68%' },
-    mobile: { order: 3 },
-  },
-];
