@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react';
-import { sendConsultationEmail, isEmailJsConfigured } from '../services/emailService';
+import { sendConsultation, isEmailJsConfigured } from '../services/emailService';
 
 const initialState = {
   name: '',
   phone: '',
+  email: '',
   destination: '',
   education: '',
   message: '',
@@ -23,6 +24,11 @@ export const useConsultationForm = (defaultDestination = '') => {
     const nextErrors = {};
     if (!formData.name.trim()) nextErrors.name = 'Name is required';
     if (!formData.phone.trim()) nextErrors.phone = 'Phone is required';
+    if (!formData.email.trim()) {
+      nextErrors.email = 'Email address is required.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      nextErrors.email = 'Please enter a valid email address.';
+    }
     if (!formData.destination) nextErrors.destination = 'Select a destination';
     if (!formData.education) nextErrors.education = 'Select your education level';
     setErrors(nextErrors);
@@ -34,7 +40,7 @@ export const useConsultationForm = (defaultDestination = '') => {
     setStatus('loading');
     try {
       if (isEmailJsConfigured()) {
-        await sendConsultationEmail(formData);
+        await sendConsultation(formData);
       } else {
         await new Promise((r) => setTimeout(r, 1200));
       }

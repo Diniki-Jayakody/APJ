@@ -109,7 +109,7 @@ export const MediaAwardsSection = () => (
       </div>
     </div>
 
-    <div className="mt-12">
+    {/* <div className="mt-12">
       <h3 className="mb-5 text-lg font-semibold text-navy-900">
         {strings.sections.media.certificatesTitle}
       </h3>
@@ -118,7 +118,7 @@ export const MediaAwardsSection = () => (
           <CertificateCard key={item.id} item={item} index={index} />
         ))}
       </div>
-    </div>
+    </div> */}
   </Section>
 );
 

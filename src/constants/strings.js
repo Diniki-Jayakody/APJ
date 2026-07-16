@@ -95,6 +95,7 @@ export const strings = {
     loading: 'Sending...',
     success: 'Thank you! APJ will contact you shortly.',
     error: 'Something went wrong. Please try WhatsApp or call us directly.',
+    email: 'Email Address',
     educationOptions: [
       'O/L Completed',
       'A/L Completed',
