@@ -39,15 +39,14 @@ export const useConsultationForm = (defaultDestination = '') => {
     if (!validate()) return false;
     setStatus('loading');
     try {
-      if (isEmailJsConfigured()) {
-        await sendConsultation(formData);
-      } else {
-        await new Promise((r) => setTimeout(r, 1200));
-      }
+      await sendConsultation(formData);
       setStatus('success');
       setFormData({ ...initialState, destination: defaultDestination });
       return true;
-    } catch {
+    } catch (error) {
+      if (import.meta.env.DEV) {
+        console.error('[ConsultationForm] Submission failed:', error);
+      }
       setStatus('error');
       return false;
     }
