@@ -10,6 +10,19 @@ const initialState = {
   message: '',
 };
 
+const isValidPhone = (phone) => {
+  if (phone.startsWith('+')) {
+    return phone.length === 12 && /^\+\d{11}$/.test(phone);
+  }
+  if (phone.startsWith('0')) {
+    return phone.length === 10 && /^\d{10}$/.test(phone);
+  }
+  if (/^[1-9]/.test(phone)) {
+    return phone.length === 9 && /^[1-9]\d{8}$/.test(phone);
+  }
+  return false;
+};
+
 export const useConsultationForm = (defaultDestination = '') => {
   const [formData, setFormData] = useState({ ...initialState, destination: defaultDestination });
   const [status, setStatus] = useState('idle');
@@ -23,7 +36,12 @@ export const useConsultationForm = (defaultDestination = '') => {
   const validate = useCallback(() => {
     const nextErrors = {};
     if (!formData.name.trim()) nextErrors.name = 'Name is required';
-    if (!formData.phone.trim()) nextErrors.phone = 'Phone is required';
+    const phone = formData.phone.trim();
+    if (!phone) {
+      nextErrors.phone = 'Phone is required';
+    } else if (!isValidPhone(phone)) {
+      nextErrors.phone = 'Please enter a valid phone number.';
+    }
     if (!formData.email.trim()) {
       nextErrors.email = 'Email address is required.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {

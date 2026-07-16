@@ -42,7 +42,7 @@ export const sendConsultation = async (data) => {
   }
 
   const templateParams = {
-    from_name: data.name.trim(),
+    name: data.name.trim(),
     phone: data.phone.trim(),
     email: data.email.trim(),
     reply_to: data.email.trim(),
