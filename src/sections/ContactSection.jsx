@@ -31,15 +31,21 @@ const BranchCard = ({ branch }) => (
       <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-sky-100/70">
         <IoCallOutline aria-hidden /> Contact Numbers
       </p>
-      <div className="flex flex-row gap-1.5">
-        {contact.phones.map((phone) => (
-          <a
-            key={`${branch.id}-${phone.link}`}
-            href={phone.link}
-            className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
-          >
-            {phone.display},
-          </a>
+      <div className="flex flex-col gap-1 md:flex-row md:flex-wrap md:items-center md:gap-x-4 md:gap-y-1">
+        {branch.phones.map((phone, index) => (
+          <span key={`${branch.id}-${phone.link}`} className="inline-flex items-center gap-4">
+            {index > 0 && (
+              <span className="hidden text-white/35 md:inline" aria-hidden>
+                |
+              </span>
+            )}
+            <a
+              href={phone.link}
+              className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
+            >
+              {phone.display}
+            </a>
+          </span>
         ))}
       </div>
     </div>
