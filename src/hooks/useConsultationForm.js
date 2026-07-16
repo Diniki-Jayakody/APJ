@@ -44,7 +44,7 @@ export const useConsultationForm = (defaultDestination = '') => {
       setFormData({ ...initialState, destination: defaultDestination });
       return true;
     } catch (error) {
-      if (import.meta.env.DEV) {
+      if (import.meta.env) {
         console.error('[ConsultationForm] Submission failed:', error);
       }
       setStatus('error');
