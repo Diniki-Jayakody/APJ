@@ -54,7 +54,7 @@ export const Footer = () => (
             >
               WhatsApp: {contact.whatsappDisplay}
             </a>
-            <a href={`mailto:${contact.email}`} className="hover:text-white">{contact.email}</a>
+            <a href={`mailto:${contact.mailtoEmail}`} className="hover:text-white">{contact.email}</a>
             <a
               href={contact.websiteUrl}
               target="_blank"

@@ -17,7 +17,7 @@ export const strings = {
     },
   },
   stats: [
-    { id: 'cases', value: 600, suffix: '+', label: 'Success Cases', icon: 'trophy' },
+    { id: 'cases', value: 1100, suffix: '+', label: 'Success Cases', icon: 'trophy' },
     { id: 'countries', value: 12, suffix: '+', label: 'Countries', icon: 'globe' },
     { id: 'success', value: 100, suffix: '%', label: 'Visa Success', icon: 'shield' },
     { id: 'support', value: 24, suffix: '/7', label: 'Support', icon: 'headset' },
@@ -76,7 +76,7 @@ export const strings = {
       kicker: 'Credibility',
       title: 'Recognized Across Sri Lanka',
       description:
-        'APJ Consultancy is featured in national media and recognized for student success — trust built in public, not just promised in private.',
+        'APJ Consultancy is featured in national media and recognized for student success - trust built in public, not just promised in private.',
       mediaTitle: 'Media Presence',
       awardsTitle: 'Awards & Recognition',
       certificatesTitle: 'Certificates & Partnerships',

@@ -97,21 +97,6 @@ export const iconRotate = {
   rest: { rotate: 0 },
   hover: { rotate: 12, transition: { duration: duration.fast } },
 };
-
-export const planeOrbit = {
-  animate: {
-    rotate: 360,
-    transition: { duration: 24, repeat: Infinity, ease: 'linear' },
-  },
-};
-
-export const globeRotate = {
-  animate: {
-    rotate: 360,
-    transition: { duration: 60, repeat: Infinity, ease: 'linear' },
-  },
-};
-
 export const floatY = {
   animate: {
     y: [-8, 8, -8],

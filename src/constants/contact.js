@@ -19,7 +19,8 @@ const whatsapp = formatPhone('0743327985');
 export const contact = {
   brand: 'APJ Consultancy',
   tagline: 'Your Dream, Our Guidance',
-  email: 'info@apjconsultancy.com',
+  email: 'info@apjconsultancy.lk',
+  mailtoEmail: 'apjconsultancy@gmail.com',
   website: 'www.apjconsultancy.lk',
   websiteUrl: 'https://www.apjconsultancy.lk',
   whatsapp: whatsapp.e164,

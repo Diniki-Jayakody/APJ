@@ -24,10 +24,6 @@ import youtube2 from '../assets/mediaPresence/youtube_2.jpeg';
 import youtube3 from '../assets/mediaPresence/youtube_3.jpeg';
 import youtube4 from '../assets/mediaPresence/youtube_4.jpg';
 
-import stampVisa from '../assets/stamps/visa_approved_stamp.png';
-import stampUniversity from '../assets/stamps/university_selected_stamp.png';
-import stampDocuments from '../assets/stamps/documents_certified_stamp.png';
-
 export const brandLogo = logo;
 
 const mediaThumbnails = {
@@ -144,30 +140,6 @@ export const mediaPresenceGallery = [
   },
 ];
 
-export const approvalStampImages = [
-  {
-    id: 'visa',
-    src: stampVisa,
-    alt: 'Student Visa Approved — APJ Consultancy official stamp',
-    rotate: -10,
-    desktop: { left: '0%', top: '2%' },
-  },
-  {
-    id: 'university',
-    src: stampUniversity,
-    alt: 'University Selected — APJ Consultancy official stamp',
-    rotate: 8,
-    desktop: { left: '72%', top: '0%' },
-  },
-  {
-    id: 'docs',
-    src: stampDocuments,
-    alt: 'Documents Certified — APJ Consultancy official stamp',
-    rotate: -6,
-    desktop: { left: '68%', top: '62%' },
-  },
-];
-
 export const officeGallery = [
   {
     id: 'office_1',
@@ -206,7 +178,6 @@ export default {
   awardsGallery,
   certificatesGallery,
   mediaPresenceGallery,
-  approvalStampImages,
   officeGallery,
   studentPhotos,
 };

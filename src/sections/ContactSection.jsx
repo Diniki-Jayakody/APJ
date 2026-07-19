@@ -55,7 +55,7 @@ const BranchCard = ({ branch }) => (
         <IoMailOutline aria-hidden /> Email
       </p>
       <a
-        href={`mailto:${contact.email}`}
+        href={`mailto:${contact.mailtoEmail}`}
         className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
       >
         {contact.email}
@@ -88,7 +88,7 @@ const SharedContactCard = () => (
           <IoMailOutline aria-hidden /> Main Email
         </p>
         <a
-          href={`mailto:${contact.email}`}
+          href={`mailto:${contact.mailtoEmail}`}
           className="text-sm font-medium text-white transition-colors hover:text-secondary-light"
         >
           {contact.email}
